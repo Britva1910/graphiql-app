@@ -11,35 +11,32 @@ export const MainPage: React.FunctionComponent = () => {
     <>
       <h1>Main page</h1>
       <Container maxWidth="xl">
-        <Grid container columnSpacing={2} sx={{ height: '90vh' }}>
-          <Grid item xs={3} sx={{ background: 'lightGreen' }}>
+        <Grid container sx={{ height: '90vh' }}>
+          <Grid item md={3} xs={12} sx={{ background: 'lightGreen' }}>
             <Doc />
           </Grid>
 
           <Grid
             container
             item
-            xs={9}
+            md={9}
+            xs={12}
             direction="column"
             justifyContent="space-around"
             alignItems="center"
           >
             <Grid container item sx={{ height: '80vh' }}>
-              <Grid item xs={6} sx={{ background: 'cyan' }}>
+              <Grid item md={6} xs={12} sx={{ background: 'cyan' }}>
                 <Editor />
               </Grid>
-              <Grid item xs={6} sx={{ background: 'grey' }}>
+              <Grid item md={6} xs={12} sx={{ background: 'grey' }}>
                 <Response />
               </Grid>
             </Grid>
 
-            <Grid container item sx={{ height: '10vh', background: 'teal' }}>
-              <Grid item xs={6}>
-                <Headers />
-              </Grid>
-              <Grid item xs={6}>
-                <Variables />
-              </Grid>
+            <Grid container sx={{ height: '10vh', background: 'teal' }}>
+              <Headers />
+              <Variables />
             </Grid>
           </Grid>
         </Grid>
