@@ -1,3 +1,7 @@
 @import './styles//normolize';
 @import './styles/mixins';
 @import './styles//variables';
+
+* {
+  outline: red dashed 1px;
+}
