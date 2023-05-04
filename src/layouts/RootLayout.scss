@@ -1,12 +1,14 @@
+@use '../styles/colors' as *;
+
 .main {
-  background-color: var(--dark-blue-800);
+  background-color: $dark-blue-800;
   flex-grow: 1;
-  color: var(--slate-300);
+  color: $slate-300;
 }
 
 .header,
 .footer {
-  background-color: var(--dark-blue-900);
+  background-color: $dark-blue-900;
 }
 
 .header {
