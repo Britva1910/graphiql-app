@@ -10,22 +10,22 @@ export const MainPage: React.FunctionComponent = () => {
   return (
     <>
       <h1>Main page</h1>
-      <Container maxWidth="xl">
+      <Container maxWidth={false}>
         <Grid container sx={{ height: '90vh' }}>
-          <Grid item md={3} xs={12} sx={{ background: 'lightGreen' }}>
+          <Grid item md={2} xs={12} sx={{ background: 'lightGreen' }}>
             <Doc />
           </Grid>
 
           <Grid
             container
             item
-            md={9}
+            md={10}
             xs={12}
             direction="column"
             justifyContent="space-around"
             alignItems="center"
           >
-            <Grid container item sx={{ height: '80vh' }}>
+            <Grid container item sx={{ height: '70vh' }}>
               <Grid item md={6} xs={12} sx={{ background: 'cyan' }}>
                 <Editor />
               </Grid>
@@ -34,7 +34,7 @@ export const MainPage: React.FunctionComponent = () => {
               </Grid>
             </Grid>
 
-            <Grid container sx={{ height: '10vh', background: 'teal' }}>
+            <Grid container sx={{ height: '20vh', background: 'teal' }}>
               <Headers />
               <Variables />
             </Grid>
