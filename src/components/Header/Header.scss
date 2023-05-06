@@ -1,6 +1,17 @@
 @use '../../styles/colors' as *;
 
 .header {
+  display: grid;
+  place-items: center;
+
   height: 5rem;
   background-color: $dark-blue-900;
+
+  &__navbar {
+    width: min(90%, 100rem);
+
+    .navbar__link {
+      text-decoration: none;
+    }
+  }
 }
