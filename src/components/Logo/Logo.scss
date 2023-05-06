@@ -1,0 +1,40 @@
+@use '../../styles/colors' as *;
+
+$transition: 0.3s ease-out;
+
+.logo {
+  display: flex;
+  width: fit-content;
+  transition: $transition;
+
+  &__icon-wrapper {
+    transition: $transition;
+    transform-origin: top right;
+
+    .logo__icon {
+      height: 5rem;
+      width: 5rem;
+      color: $cyan-300;
+    }
+  }
+
+  &__text {
+    margin-top: 2.25rem;
+    margin-left: -1.2rem;
+
+    font-size: 1.7rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: $slate-200;
+
+    transition: $transition;
+  }
+
+  &:hover &__icon-wrapper {
+    rotate: -5deg;
+  }
+
+  &:hover &__text {
+    margin-left: -0.9rem;
+    color: $slate-100;
+  }
+}
