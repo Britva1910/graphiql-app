@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import './WelcomePage.scss';
 
-export const WelcomePage: React.FunctionComponent = () => {
+const WelcomePage: React.FunctionComponent = () => {
   return (
     <>
       <h1>
@@ -17,3 +17,5 @@ export const WelcomePage: React.FunctionComponent = () => {
     </>
   );
 };
+
+export default WelcomePage;
