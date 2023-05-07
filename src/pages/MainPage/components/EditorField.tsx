@@ -23,9 +23,9 @@ export const EditorField: React.FC<EditorProps> = ({ setNewValue }) => {
       <Button
         variant="contained"
         onClick={handleSave}
-        sx={{ position: 'absolute', zIndex: '10', left: '56%', top: '40px' }}
+        sx={{ position: 'absolute', left: '56%', top: '110px' }}
       >
-        Save
+        Go
       </Button>
       <div style={{ display: 'flex', height: '100%' }}>
         <AceEditor
