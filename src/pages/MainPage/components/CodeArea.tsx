@@ -2,6 +2,7 @@ import { Grid } from '@mui/material';
 import React from 'react';
 import { EditorField } from './EditorField';
 import { Response } from './ResponseField';
+import { ApiRequest } from '../../../components/ApiRequest';
 
 export const CodeArea: React.FunctionComponent = () => {
   const [value, setValue] = React.useState('');
@@ -10,7 +11,7 @@ export const CodeArea: React.FunctionComponent = () => {
     <>
       <Grid container item sx={{ height: '70vh' }}>
         <Grid item md={6} xs={12}>
-          <EditorField setNewValue={setValue} />
+          <EditorField setNewValue={setValue} ApiRequest={ApiRequest} />
         </Grid>
         <Grid item md={6} xs={12} sx={{ background: 'grey' }}>
           <Response getNewValue={value} />

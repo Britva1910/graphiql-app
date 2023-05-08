@@ -8,21 +8,19 @@ import 'ace-builds/src-noconflict/theme-github';
 
 interface EditorProps {
   setNewValue: (newValue: string) => void;
+  ApiRequest: (value: string, setNewValue: (newValue: string) => void) => void;
 }
 
-export const EditorField: React.FC<EditorProps> = ({ setNewValue }) => {
+export const EditorField: React.FC<EditorProps> = ({ setNewValue, ApiRequest }) => {
   const [val, setVal] = React.useState('');
-
-  const handleSave = () => {
-    setNewValue(val);
-    console.log('Editor value:', val);
-  };
 
   return (
     <>
       <Button
         variant="contained"
-        onClick={handleSave}
+        onClick={() => {
+          ApiRequest(val, setNewValue);
+        }}
         sx={{ position: 'absolute', left: '56%', top: '110px' }}
       >
         Go
