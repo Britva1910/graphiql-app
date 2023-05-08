@@ -6,10 +6,10 @@ import 'ace-builds/src-noconflict/mode-text';
 import 'ace-builds/src-noconflict/theme-github';
 
 interface ResponseProps {
-  getNewValue: string;
+  responseText: string;
 }
 
-export const Response: React.FC<ResponseProps> = ({ getNewValue }) => {
+export const Response: React.FC<ResponseProps> = ({ responseText }) => {
   return (
     <>
       <div style={{ display: 'flex', height: '100%' }}>
@@ -17,7 +17,7 @@ export const Response: React.FC<ResponseProps> = ({ getNewValue }) => {
           mode="text"
           theme="github"
           name="my-text-response"
-          value={getNewValue}
+          value={responseText}
           width="100%"
           fontSize={16}
           showPrintMargin={true}

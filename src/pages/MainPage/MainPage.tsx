@@ -5,7 +5,7 @@ import { Variables } from './components/VariablesField';
 
 import { Container, Grid } from '@mui/material';
 import { CodeArea } from './components/CodeArea';
-import ApiSchema from '../../components/ApiSchema';
+import ApiSchema from '../../utils/ApiSchema';
 
 export const MainPage: React.FunctionComponent = () => {
   return (

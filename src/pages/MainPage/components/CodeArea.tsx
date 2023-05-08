@@ -2,19 +2,19 @@ import { Grid } from '@mui/material';
 import React from 'react';
 import { EditorField } from './EditorField';
 import { Response } from './ResponseField';
-import { ApiRequest } from '../../../components/ApiRequest';
+import { fetchDataFromApi } from '../../../utils/ApiRequest';
 
 export const CodeArea: React.FunctionComponent = () => {
-  const [value, setValue] = React.useState('');
+  const [responseText, setResponseText] = React.useState('');
 
   return (
     <>
       <Grid container item sx={{ height: '70vh' }}>
         <Grid item md={6} xs={12}>
-          <EditorField setNewValue={setValue} ApiRequest={ApiRequest} />
+          <EditorField setResponseText={setResponseText} fetchDataFromApi={fetchDataFromApi} />
         </Grid>
         <Grid item md={6} xs={12} sx={{ background: 'grey' }}>
-          <Response getNewValue={value} />
+          <Response responseText={responseText} />
         </Grid>
       </Grid>
     </>

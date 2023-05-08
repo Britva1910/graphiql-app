@@ -7,19 +7,19 @@ import 'ace-builds/src-noconflict/mode-text';
 import 'ace-builds/src-noconflict/theme-github';
 
 interface EditorProps {
-  setNewValue: (newValue: string) => void;
-  ApiRequest: (value: string, setNewValue: (newValue: string) => void) => void;
+  setResponseText: (newRequestBody: string) => void;
+  fetchDataFromApi: (query: string, setResponseText: (newResponseText: string) => void) => void;
 }
 
-export const EditorField: React.FC<EditorProps> = ({ setNewValue, ApiRequest }) => {
-  const [val, setVal] = React.useState('');
+export const EditorField: React.FC<EditorProps> = ({ setResponseText, fetchDataFromApi }) => {
+  const [requestText, setRequestText] = React.useState('');
 
   return (
     <>
       <Button
         variant="contained"
         onClick={() => {
-          ApiRequest(val, setNewValue);
+          fetchDataFromApi(requestText, setResponseText);
         }}
         sx={{ position: 'absolute', left: '56%', top: '110px' }}
       >
@@ -30,7 +30,7 @@ export const EditorField: React.FC<EditorProps> = ({ setNewValue, ApiRequest }) 
           mode="text"
           theme="github"
           name="my-text-editor"
-          onChange={setVal}
+          onChange={setRequestText}
           width="100%"
           fontSize={16}
           showPrintMargin={true}
