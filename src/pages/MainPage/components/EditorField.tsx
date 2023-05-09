@@ -5,27 +5,32 @@ import AceEditor from 'react-ace';
 
 import 'ace-builds/src-noconflict/mode-text';
 import 'ace-builds/src-noconflict/theme-github';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../app/store';
+import { setEditorValue } from './EditorFieldSlice';
+import { fetchDataFromApi } from '../../../utils/ApiRequest';
+import { setResponseValue } from './ResponseFieldSlice';
 
-interface EditorProps {
-  setResponseText: (newRequestBody: string) => void;
-  fetchDataFromApi: (
-    query: string,
-    variables: Record<string, number>,
-    setResponseText: (newResponseText: string) => void
-  ) => void;
-}
+export const EditorField = () => {
+  const editorValue = useSelector((state: RootState) => state.editor.value);
+  const dispatch = useDispatch();
 
-export const EditorField: React.FC<EditorProps> = ({ setResponseText, fetchDataFromApi }) => {
-  const [requestText, setRequestText] = React.useState('');
-  const [variablesText /* setVariablesText */] = React.useState({});
+  //add editor value in Store
+  const handleEditorChange = (newValue: string) => {
+    dispatch(setEditorValue(newValue));
+  };
+
+  // get API data and save in Store
+  const handleGoButtonClick = async () => {
+    const responseText = (await fetchDataFromApi(editorValue)) as string;
+    dispatch(setResponseValue(responseText));
+  };
 
   return (
     <>
       <Button
         variant="contained"
-        onClick={() => {
-          fetchDataFromApi(requestText, variablesText, setResponseText);
-        }}
+        onClick={handleGoButtonClick}
         sx={{ position: 'absolute', left: '56%', top: '110px' }}
       >
         Go
@@ -34,8 +39,9 @@ export const EditorField: React.FC<EditorProps> = ({ setResponseText, fetchDataF
         <AceEditor
           mode="text"
           theme="github"
+          value={editorValue}
           name="my-text-editor"
-          onChange={setRequestText}
+          onChange={handleEditorChange}
           width="100%"
           fontSize={16}
           showPrintMargin={true}

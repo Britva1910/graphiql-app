@@ -4,12 +4,12 @@ import AceEditor from 'react-ace';
 
 import 'ace-builds/src-noconflict/mode-text';
 import 'ace-builds/src-noconflict/theme-github';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../app/store';
 
-interface ResponseProps {
-  responseText: string;
-}
-
-export const Response: React.FC<ResponseProps> = ({ responseText }) => {
+export const Response = () => {
+  const responseValue = useSelector((state: RootState) => state.response.value);
+  console.log('responseValue :>> ', responseValue);
   return (
     <>
       <div style={{ display: 'flex', height: '100%' }}>
@@ -17,7 +17,7 @@ export const Response: React.FC<ResponseProps> = ({ responseText }) => {
           mode="text"
           theme="github"
           name="my-text-response"
-          value={responseText}
+          value={responseValue}
           width="100%"
           fontSize={16}
           showPrintMargin={true}
