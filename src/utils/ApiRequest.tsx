@@ -1,17 +1,18 @@
-export function fetchDataFromApi(
+import { GraphQLClient } from 'graphql-request';
+
+export async function fetchDataFromApi(
   query: string,
+  variables: Record<string, unknown> = {},
   setResponseText: (newResponseText: string) => void
 ) {
-  fetch('https://rickandmortyapi.com/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: query,
-    }),
-  })
-    .then((res) => res.json())
-    .then((res) => JSON.stringify(res, null, '\t'))
-    .then((res) => setResponseText(res));
+  const endpoint = 'https://rickandmortyapi.com/graphql';
+  const client = new GraphQLClient(endpoint);
+
+  try {
+    const data = await client.request(query, variables);
+    const responseText = JSON.stringify(data, null, '\t');
+    setResponseText(responseText);
+  } catch (error) {
+    console.error(error);
+  }
 }

@@ -8,18 +8,23 @@ import 'ace-builds/src-noconflict/theme-github';
 
 interface EditorProps {
   setResponseText: (newRequestBody: string) => void;
-  fetchDataFromApi: (query: string, setResponseText: (newResponseText: string) => void) => void;
+  fetchDataFromApi: (
+    query: string,
+    variables: Record<string, number>,
+    setResponseText: (newResponseText: string) => void
+  ) => void;
 }
 
 export const EditorField: React.FC<EditorProps> = ({ setResponseText, fetchDataFromApi }) => {
   const [requestText, setRequestText] = React.useState('');
+  const [variablesText /* setVariablesText */] = React.useState({});
 
   return (
     <>
       <Button
         variant="contained"
         onClick={() => {
-          fetchDataFromApi(requestText, setResponseText);
+          fetchDataFromApi(requestText, variablesText, setResponseText);
         }}
         sx={{ position: 'absolute', left: '56%', top: '110px' }}
       >

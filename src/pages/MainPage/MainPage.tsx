@@ -19,7 +19,7 @@ export const MainPage: React.FunctionComponent = () => {
           </Grid>
 
           <Grid
-            id="TextArea"
+            id="CodeArea"
             container
             item
             md={10}
