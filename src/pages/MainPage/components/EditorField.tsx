@@ -13,6 +13,8 @@ import { setResponseValue } from './ResponseFieldSlice';
 
 export const EditorField = () => {
   const editorValue = useSelector((state: RootState) => state.editor.value);
+  const variablesValue = useSelector((state: RootState) => state.variables.value);
+
   const dispatch = useDispatch();
 
   //add editor value in Store
@@ -22,8 +24,9 @@ export const EditorField = () => {
 
   // get API data and save in Store
   const handleGoButtonClick = async () => {
-    const responseText = (await fetchDataFromApi(editorValue)) as string;
+    const responseText = (await fetchDataFromApi(editorValue, variablesValue)) as string;
     dispatch(setResponseValue(responseText));
+    /*  dispatch(setVariablesValue(variablesValue)); */
   };
 
   return (
