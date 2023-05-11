@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../app/store';
 import { setEditorValue } from './EditorFieldSlice';
 import { fetchDataFromApi } from '../../../utils/ApiRequest';
-import { setResponseValue } from './ResponseFieldSlice';
 
 export const EditorField = () => {
   const editorValue = useSelector((state: RootState) => state.editor.value);
@@ -22,11 +21,12 @@ export const EditorField = () => {
     dispatch(setEditorValue(newValue));
   };
 
-  // get API data and save in Store
+  // get API request
   const handleGoButtonClick = async () => {
-    const responseText = (await fetchDataFromApi(editorValue, variablesValue)) as string;
-    dispatch(setResponseValue(responseText));
-    /*  dispatch(setVariablesValue(variablesValue)); */
+    const query = editorValue;
+    const variables = variablesValue;
+
+    await fetchDataFromApi(query, variables, dispatch);
   };
 
   return (

@@ -9,6 +9,8 @@ import { RootState } from '../../../app/store';
 
 export const Response = () => {
   const responseValue = useSelector((state: RootState) => state.response.value);
+  const responseError = useSelector((state: RootState) => state.response.error);
+
   console.log('responseValue :>> ', responseValue);
   return (
     <>
@@ -17,7 +19,7 @@ export const Response = () => {
           mode="text"
           theme="github"
           name="my-text-response"
-          value={responseValue}
+          value={responseValue || responseError /* ? responseValue : 'error' */}
           width="100%"
           fontSize={16}
           showPrintMargin={true}
