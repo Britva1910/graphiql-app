@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
-import { getIntrospectionQuery } from 'graphql';
+import {
+  getIntrospectionQuery,
+  /*buildClientSchema,
+  printSchema  
+  TODO work with Schema */
+} from 'graphql';
 import { GraphQLClient } from 'graphql-request';
 
 const client = new GraphQLClient('https://rickandmortyapi.com/graphql');

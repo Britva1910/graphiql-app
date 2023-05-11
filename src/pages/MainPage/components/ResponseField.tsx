@@ -19,7 +19,7 @@ export const Response = () => {
           mode="text"
           theme="github"
           name="my-text-response"
-          value={responseValue || responseError}
+          value={responseValue ? responseValue : responseError}
           width="100%"
           fontSize={16}
           showPrintMargin={true}
