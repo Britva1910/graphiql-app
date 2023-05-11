@@ -15,15 +15,14 @@ export const Variables: React.FunctionComponent = () => {
 
   return (
     <>
-      <div>
-        VARIABLES
+      <div style={{ width: '100%' }}>
         <AceEditor
           mode="text"
           theme="github"
           name="my-text-response"
           value={JSON.stringify(variablesValue, null, '\t')}
           onChange={handleVariablesChange}
-          width="400px"
+          width="100%"
           fontSize={16}
           showPrintMargin={true}
           showGutter={true}

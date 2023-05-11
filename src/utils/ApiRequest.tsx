@@ -17,7 +17,6 @@ export async function fetchDataFromApi(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error(error);
-    /*     console.log('error.response.errors', error.response); */
     const eroorText = JSON.stringify(error.response.errors, null, '\t');
     dispatch(setErrorValue(eroorText));
   }
