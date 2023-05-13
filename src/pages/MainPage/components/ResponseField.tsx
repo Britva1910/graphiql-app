@@ -5,7 +5,7 @@ import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-text';
 import 'ace-builds/src-noconflict/theme-github';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../app/store';
+import { RootState } from '../../../storage/store';
 
 export const Response = () => {
   const responseValue = useSelector((state: RootState) => state.response.value);

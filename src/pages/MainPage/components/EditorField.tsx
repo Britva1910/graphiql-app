@@ -6,13 +6,13 @@ import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-text';
 import 'ace-builds/src-noconflict/theme-github';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../app/store';
+import { RootState } from '../../../storage/store';
 import { setEditorValue } from './EditorFieldSlice';
 import { fetchDataFromApi } from '../../../utils/ApiRequest';
 
 export const EditorField = () => {
   const editorValue = useSelector((state: RootState) => state.editor.value);
-  const variablesValue = useSelector((state: RootState) => state.variables.value);
+  const variablesValue = useSelector((state: RootState) => state.editor.variables);
 
   const dispatch = useDispatch();
 
@@ -24,8 +24,14 @@ export const EditorField = () => {
   // get API request
   const handleGoButtonClick = async () => {
     const query = editorValue;
-    const variables = variablesValue;
 
+    //catch parse error when user input is invalid variables value
+    let variables;
+    try {
+      variables = JSON.parse(variablesValue);
+    } catch (error) {
+      variables = {};
+    }
     await fetchDataFromApi(query, variables, dispatch);
   };
 

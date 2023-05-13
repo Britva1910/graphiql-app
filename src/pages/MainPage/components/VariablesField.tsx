@@ -1,16 +1,14 @@
 import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../app/store';
+import { useDispatch } from 'react-redux';
+
 import AceEditor from 'react-ace';
-import { setVariablesValue } from './VariablesFieldSlice';
+import { setVariablesValue } from './EditorFieldSlice';
 
 export const Variables: React.FunctionComponent = () => {
-  const variablesValue = useSelector((state: RootState) => state.variables.value);
   const dispatch = useDispatch();
 
   const handleVariablesChange = async (value: string) => {
-    const NewValue = JSON.parse(value);
-    dispatch(setVariablesValue(NewValue));
+    dispatch(setVariablesValue(value));
   };
 
   return (
@@ -20,7 +18,7 @@ export const Variables: React.FunctionComponent = () => {
           mode="text"
           theme="github"
           name="my-text-response"
-          value={JSON.stringify(variablesValue, null, '\t')}
+          /*  value={JSON.stringify(variablesValue, null, '\t')} */
           onChange={handleVariablesChange}
           width="100%"
           fontSize={16}
