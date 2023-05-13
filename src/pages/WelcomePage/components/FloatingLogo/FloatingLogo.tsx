@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 import logo from '../../../../assets/logo691x439.png';
+import './FloatingLogo.scss';
 
 const FloatingLogo: React.FunctionComponent = () => {
   return (
