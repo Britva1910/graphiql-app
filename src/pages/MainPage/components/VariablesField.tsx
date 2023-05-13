@@ -16,9 +16,9 @@ export const Variables: React.FunctionComponent = () => {
     <>
       <div style={{ width: '100%' }}>
         <AceEditor
-          mode="text"
-          theme="github"
-          name="my-text-response"
+          mode="javascript"
+          theme="solarized_dark"
+          name="my-text-variables"
           value={variablesValue}
           onChange={handleVariablesChange}
           width="100%"
@@ -28,6 +28,14 @@ export const Variables: React.FunctionComponent = () => {
           highlightActiveLine={true}
           editorProps={{ $blockScrolling: Infinity }}
           style={{ height: '100%' }}
+          wrapEnabled={true}
+          setOptions={{
+            enableBasicAutocompletion: true,
+            enableLiveAutocompletion: true,
+            enableSnippets: true,
+            showLineNumbers: true,
+            tabSize: 2,
+          }}
         />
       </div>
     </>

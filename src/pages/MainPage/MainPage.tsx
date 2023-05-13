@@ -13,7 +13,7 @@ export const MainPage: React.FunctionComponent = () => {
     <>
       <h1>Main page</h1>
       <Container maxWidth={false}>
-        <Grid container sx={{ height: '90vh' }}>
+        <Grid container>
           <Grid item md={2} xs={12} sx={{ background: 'lightGreen', overflow: 'scroll' }}>
             <Doc />
             <ApiSchema />

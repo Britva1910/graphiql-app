@@ -6,7 +6,7 @@ import { Response } from './ResponseField';
 export const CodeArea: React.FunctionComponent = () => {
   return (
     <>
-      <Grid container item sx={{ height: '70vh' }}>
+      <Grid container item sx={{ height: '55vh' }}>
         <Grid item md={6} xs={12}>
           <EditorField />
         </Grid>
