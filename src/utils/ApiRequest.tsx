@@ -1,5 +1,5 @@
 import { GraphQLClient, Variables } from 'graphql-request';
-import { setResponseValue, setErrorValue } from '../pages/MainPage/components/ResponseFieldSlice';
+import { setResponseValue, setErrorValue } from '../storage/ResponseFieldSlice';
 import { AppDispatch } from '../storage/store';
 
 export async function fetchDataFromApi(query: string, variables: Variables, dispatch: AppDispatch) {

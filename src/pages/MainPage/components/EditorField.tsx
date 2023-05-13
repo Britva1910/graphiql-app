@@ -9,7 +9,7 @@ import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-solarized_dark';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../storage/store';
-import { setEditorValue } from './EditorFieldSlice';
+import { setEditorValue } from '../../../storage/EditorFieldSlice';
 import { fetchDataFromApi } from '../../../utils/ApiRequest';
 
 export const EditorField = () => {

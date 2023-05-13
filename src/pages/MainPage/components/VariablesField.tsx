@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import AceEditor from 'react-ace';
-import { setVariablesValue } from './EditorFieldSlice';
+import { setVariablesValue } from '../../../storage/EditorFieldSlice';
 import { RootState } from '../../../storage/store';
 
 export const Variables: React.FunctionComponent = () => {
