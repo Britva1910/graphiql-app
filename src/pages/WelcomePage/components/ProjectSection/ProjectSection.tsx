@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import Button from '../../../../components/Button/Button';
 import Wave from '../Wave/Wave';
+import FloatingLogo from '../FloatingLogo/FloatingLogo';
 
-import logo from '../../../../assets/logo691x439.png';
 import './ProjectSection.scss';
 
 const ProjectSection: React.FunctionComponent = () => {
@@ -23,7 +23,7 @@ const ProjectSection: React.FunctionComponent = () => {
 
   const right = (
     <div className="project-section__right">
-      <img className="project-section__logo-img" src={logo} alt="logo" />
+      <FloatingLogo />
     </div>
   );
 
