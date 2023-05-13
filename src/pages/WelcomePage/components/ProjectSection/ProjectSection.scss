@@ -6,14 +6,27 @@
   align-items: center;
 
   &__content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
     gap: 2rem;
 
     width: min(95%, 80rem);
+    margin-bottom: 6rem;
+
+    @media (max-width: 50rem) {
+      margin-top: 6rem;
+      grid-template-columns: 1fr;
+    }
+    @media (max-width: 31.25rem) {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
 
     .project-section__left {
-      flex: 1;
-      margin: auto;
+      @media (max-width: 31.25rem) {
+        text-align: center;
+      }
 
       .project-section__title {
         margin-top: 0;
@@ -24,6 +37,13 @@
         font-weight: 700;
         letter-spacing: 0.1rem;
         color: $slate-100;
+
+        @media (max-width: 25rem) {
+          font-size: 4rem;
+        }
+        @media (max-width: 18.75rem) {
+          font-size: 3rem;
+        }
       }
 
       .project-section__subtitle {
@@ -33,6 +53,10 @@
         line-height: 1.8rem;
         letter-spacing: 0.01rem;
         color: $purple-300;
+
+        @media (max-width: 25rem) {
+          font-size: 1.2rem;
+        }
       }
 
       .project-section__subsubtitle {
@@ -44,11 +68,16 @@
         line-height: 1.6rem;
         letter-spacing: 0.01rem;
         color: $slate-200;
+
+        @media (max-width: 25rem) {
+          font-size: 1rem;
+        }
       }
     }
 
     .project-section__right {
-      flex: 1;
+      display: flex;
+      justify-content: center;
     }
   }
 }
