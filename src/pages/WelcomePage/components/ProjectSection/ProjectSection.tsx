@@ -3,6 +3,7 @@ import * as React from 'react';
 import Button from '../../../../components/Button/Button';
 
 import logo from '../../../../assets/logo691x439.png';
+import wave from '../../../../assets/layered-waves.svg';
 import './ProjectSection.scss';
 
 const ProjectSection: React.FunctionComponent = () => {
@@ -27,12 +28,17 @@ const ProjectSection: React.FunctionComponent = () => {
   );
 
   return (
-    <section className="section project-section">
-      <div className="project-section__content">
-        {left}
-        {right}
-      </div>
-    </section>
+    <>
+      <section className="section project-section">
+        <div className="project-section__wave">
+          <img src={wave} className="project-section__wave__img" alt="" />
+        </div>
+        <div className="project-section__content">
+          {left}
+          {right}
+        </div>
+      </section>
+    </>
   );
 };
 
