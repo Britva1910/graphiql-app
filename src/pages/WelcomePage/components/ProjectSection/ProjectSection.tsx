@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import Button from '../../../../components/Button/Button';
 import Wave from '../Wave/Wave';
@@ -17,7 +18,9 @@ const ProjectSection: React.FunctionComponent = () => {
         It allows authorized users to explore, edit and test GraphQL queries, mutations and
         subscriptions.
       </h3>
-      <Button color="cyan">Try it now</Button>
+      <Link to="/main">
+        <Button color="cyan">Try it now</Button>
+      </Link>
     </div>
   );
 
