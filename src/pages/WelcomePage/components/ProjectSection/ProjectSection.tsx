@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import Button from '../../../../components/Button/Button';
 
+import logo from '../../../../assets/logo691x439.png';
 import './ProjectSection.scss';
 
 const ProjectSection: React.FunctionComponent = () => {
@@ -19,11 +20,17 @@ const ProjectSection: React.FunctionComponent = () => {
     </div>
   );
 
+  const right = (
+    <div className="project-section__right">
+      <img className="project-section__logo-img" src={logo} alt="logo" />
+    </div>
+  );
+
   return (
     <section className="section project-section">
       <div className="project-section__content">
         {left}
-        <div className="project-section__right"></div>
+        {right}
       </div>
     </section>
   );
