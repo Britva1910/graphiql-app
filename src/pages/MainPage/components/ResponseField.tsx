@@ -31,7 +31,7 @@ export const Response = () => {
             enableBasicAutocompletion: true,
             enableLiveAutocompletion: true,
             enableSnippets: true,
-            showLineNumbers: false,
+            showLineNumbers: true,
             tabSize: 2,
           }}
         />
