@@ -26,7 +26,7 @@ export default function ToggleButton() {
   return (
     <>
       <Grid item sx={{ width: '100%' }}>
-        <Box sx={{ height: 180 }}>
+        <Box>
           <Box>
             <FormControlLabel
               control={<Switch checked={checked} onChange={handleChange} />}
