@@ -28,8 +28,8 @@ export const Response = () => {
           style={{ height: '100%' }}
           wrapEnabled={true}
           setOptions={{
-            enableBasicAutocompletion: true,
-            enableLiveAutocompletion: true,
+            /*    enableBasicAutocompletion: false,
+            enableLiveAutocompletion: true, */
             enableSnippets: true,
             showLineNumbers: true,
             tabSize: 2,
