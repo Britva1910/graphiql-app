@@ -3,41 +3,71 @@ import * as React from 'react';
 import { Button } from '@mui/material';
 import AceEditor from 'react-ace';
 
-import 'ace-builds/src-noconflict/mode-text';
-import 'ace-builds/src-noconflict/theme-github';
+/* import 'ace-builds/src-noconflict/mode-graphqlschema'; */
 
-interface EditorProps {
-  setResponseText: (newRequestBody: string) => void;
-  fetchDataFromApi: (query: string, setResponseText: (newResponseText: string) => void) => void;
-}
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/theme-solarized_dark';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../storage/store';
+import { setEditorValue } from './EditorFieldSlice';
+import { fetchDataFromApi } from '../../../utils/ApiRequest';
 
-export const EditorField: React.FC<EditorProps> = ({ setResponseText, fetchDataFromApi }) => {
-  const [requestText, setRequestText] = React.useState('');
+export const EditorField = () => {
+  const editorValue = useSelector((state: RootState) => state.editor.value);
+  const variablesValue = useSelector((state: RootState) => state.editor.variables);
+
+  const dispatch = useDispatch();
+
+  //add editor value in Store
+  const handleEditorChange = (newValue: string) => {
+    dispatch(setEditorValue(newValue));
+  };
+
+  // get API request
+  const handleGoButtonClick = async () => {
+    const query = editorValue;
+
+    //catch parse error when user input is invalid variables value
+    let variables;
+    try {
+      variables = JSON.parse(variablesValue);
+    } catch (error) {
+      variables = {};
+    }
+    await fetchDataFromApi(query, variables, dispatch);
+  };
 
   return (
     <>
       <Button
         variant="contained"
-        onClick={() => {
-          fetchDataFromApi(requestText, setResponseText);
-        }}
+        onClick={handleGoButtonClick}
         sx={{ position: 'absolute', left: '56%', top: '110px' }}
       >
         Go
       </Button>
       <div style={{ display: 'flex', height: '100%' }}>
         <AceEditor
-          mode="text"
-          theme="github"
+          mode="javascript"
+          theme="solarized_dark"
+          value={editorValue}
           name="my-text-editor"
-          onChange={setRequestText}
+          onChange={handleEditorChange}
           width="100%"
-          fontSize={16}
+          fontSize={14}
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}
           editorProps={{ $blockScrolling: Infinity }}
           style={{ height: '100%' }}
+          wrapEnabled={true}
+          setOptions={{
+            enableBasicAutocompletion: true,
+            enableLiveAutocompletion: true,
+            enableSnippets: true,
+            showLineNumbers: true,
+            tabSize: 2,
+          }}
         />
       </div>
     </>

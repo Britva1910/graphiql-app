@@ -2,29 +2,38 @@ import * as React from 'react';
 
 import AceEditor from 'react-ace';
 
-import 'ace-builds/src-noconflict/mode-text';
-import 'ace-builds/src-noconflict/theme-github';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../storage/store';
 
-interface ResponseProps {
-  responseText: string;
-}
+export const Response = () => {
+  const responseValue = useSelector((state: RootState) => state.response.value);
+  const responseError = useSelector((state: RootState) => state.response.error);
 
-export const Response: React.FC<ResponseProps> = ({ responseText }) => {
+  console.log('responseValue :>> ', responseValue);
   return (
     <>
       <div style={{ display: 'flex', height: '100%' }}>
         <AceEditor
-          mode="text"
-          theme="github"
+          mode="javascript"
+          theme="solarized_dark"
+          readOnly={true}
           name="my-text-response"
-          value={responseText}
+          value={responseValue ? responseValue : responseError}
           width="100%"
-          fontSize={16}
+          fontSize={14}
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}
           editorProps={{ $blockScrolling: Infinity }}
           style={{ height: '100%' }}
+          wrapEnabled={true}
+          setOptions={{
+            enableBasicAutocompletion: true,
+            enableLiveAutocompletion: true,
+            enableSnippets: true,
+            showLineNumbers: false,
+            tabSize: 2,
+          }}
         />
       </div>
     </>
