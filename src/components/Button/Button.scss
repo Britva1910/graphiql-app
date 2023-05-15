@@ -1,0 +1,57 @@
+@use '../../styles/colors' as *;
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+
+  min-width: 8.125rem;
+  height: 2.5rem;
+  padding: 0.3125rem 0.625rem;
+  border: none;
+  border-radius: 0.3125rem;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: $dark-blue-900;
+
+  &--cyan {
+    background-color: $cyan-300;
+  }
+
+  &--purple {
+    background-color: $purple-300;
+  }
+
+  &--red {
+    background-color: $red-400;
+  }
+
+  &--arrow {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: '\00BB';
+      position: absolute;
+      top: -0.125rem;
+      right: -1.25rem;
+
+      font-size: 1.25rem;
+      line-height: 2.5rem;
+
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    &:hover {
+      padding-right: 1.5rem;
+      padding-left: 0.5rem;
+
+      &::after {
+        right: 0.625rem;
+        opacity: 1;
+      }
+    }
+  }
+}

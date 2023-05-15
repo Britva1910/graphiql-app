@@ -1,0 +1,12 @@
+.wave {
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 15 / 2;
+
+  &__img {
+    object-fit: cover;
+    width: 130%;
+    height: 100%;
+    object-position: top center;
+  }
+}
