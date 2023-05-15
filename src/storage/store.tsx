@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import editorReducer from '../pages/MainPage/components/EditorFieldSlice';
-import responseReducer from '../pages/MainPage/components/ResponseFieldSlice';
+import editorReducer from './EditorFieldSlice';
+import responseReducer from './ResponseFieldSlice';
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

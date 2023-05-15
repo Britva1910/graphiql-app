@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import AceEditor from 'react-ace';
-import { setVariablesValue } from './EditorFieldSlice';
+import { setVariablesValue } from '../../../storage/EditorFieldSlice';
 import { RootState } from '../../../storage/store';
 
 export const Variables: React.FunctionComponent = () => {
@@ -30,8 +30,8 @@ export const Variables: React.FunctionComponent = () => {
           style={{ height: '100%' }}
           wrapEnabled={true}
           setOptions={{
-            enableBasicAutocompletion: true,
-            enableLiveAutocompletion: true,
+            /*        enableBasicAutocompletion: false,
+            enableLiveAutocompletion: true, */
             enableSnippets: true,
             showLineNumbers: true,
             tabSize: 2,
