@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 
 import './index.scss';
 
+import './firebase';
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <App />
