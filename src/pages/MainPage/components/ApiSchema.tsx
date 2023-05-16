@@ -32,7 +32,7 @@ export default function ApiSchema() {
   }, []);
 
   if (!schema) {
-    return <div>Loading schema...</div>;
+    return <div>{/* Loading schema... */}</div>;
   }
 
   const renderField = (field: GraphQLField<unknown, unknown>) => {
