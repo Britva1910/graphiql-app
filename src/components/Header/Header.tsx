@@ -15,13 +15,13 @@ const Header: React.FunctionComponent = () => {
         </Link>
 
         <div className="navbar__right">
-          <Link to="/">
+          <Link to="/sign-in">
             <Button color="secondary" variant="contained">
               Sign in
             </Button>
           </Link>
 
-          <Link to="/">
+          <Link to="/sign-up">
             <Button color="secondary" variant="contained">
               Sign up
             </Button>
