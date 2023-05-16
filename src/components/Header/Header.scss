@@ -10,8 +10,13 @@
   &__navbar {
     width: min(90%, 100rem);
 
-    .navbar__link {
-      text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar__right {
+      display: flex;
+      gap: 0.5rem;
     }
   }
 }
