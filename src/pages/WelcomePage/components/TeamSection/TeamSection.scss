@@ -1,0 +1,9 @@
+@use '../../../../styles/colors' as *;
+
+.team-section {
+  min-height: 100vh;
+  background-color: $red-400;
+  background-image: url('../../.././../assets/blurry-gradient.svg');
+  background-position: center;
+  background-size: cover;
+}
