@@ -33,7 +33,7 @@ const ProjectSection: React.FunctionComponent = () => {
   return (
     <section className="section project-section">
       <Wave />
-      <div className="project-section__content">
+      <div className="project-section__content section__inner">
         {left}
         {right}
       </div>
