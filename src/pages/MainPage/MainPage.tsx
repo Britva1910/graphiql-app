@@ -9,7 +9,7 @@ import { Container, Grid } from '@mui/material';
 
 export const MainPage: React.FunctionComponent = () => {
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       <h1>Main page</h1>
       <Container maxWidth={false}>
         <Grid container>
@@ -37,6 +37,6 @@ export const MainPage: React.FunctionComponent = () => {
           </Grid>
         </Grid>
       </Container>
-    </>
+    </div>
   );
 };
