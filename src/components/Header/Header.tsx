@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@mui/material';
 
 import Logo from '../Logo/Logo';
@@ -11,8 +10,11 @@ const Header: React.FunctionComponent = () => {
   // isAuthenticated state is only for now, since we don't have authentication yet
   // i'll change that later
   const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const navigate = useNavigate();
 
+  const location = useLocation();
+  const isCurrentRouteWelcomePage = location.pathname === '/';
+
+  const navigate = useNavigate();
   const signIn = () => setIsAuthenticated(true);
   const signOut = () => {
     setIsAuthenticated(false);
@@ -21,6 +23,14 @@ const Header: React.FunctionComponent = () => {
 
   const buttonsForAuthenticated = (
     <>
+      {isCurrentRouteWelcomePage && (
+        <Link to="/main">
+          <Button color="secondary" variant="contained">
+            Go to main page
+          </Button>
+        </Link>
+      )}
+
       <Button onClick={signOut} color="secondary" variant="contained">
         Sign out
       </Button>
