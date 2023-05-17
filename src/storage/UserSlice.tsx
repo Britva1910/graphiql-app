@@ -8,7 +8,7 @@ interface UserState {
 
 const initialState: UserState = {
   email: null,
-  token: null,
+  token: 'testToken',
   id: null,
 };
 
