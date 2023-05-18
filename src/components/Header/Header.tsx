@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@mui/material';
+import { getAuth, signOut } from '@firebase/auth';
 
+import { useAppDispatch } from '../../hooks/redux-hooks';
+import { removeUser } from '../../storage/UserSlice';
 import { useAuth } from '../../hooks/use-auth';
 import Logo from '../Logo/Logo';
 
@@ -12,9 +15,19 @@ const Header: React.FunctionComponent = () => {
 
   const { pathname } = useLocation();
   const isCurrentRouteWelcomePage = pathname === '/';
+
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const signOut = () => {
+  const handleSignOut = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        dispatch(removeUser());
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     navigate('/');
   };
 
@@ -28,7 +41,7 @@ const Header: React.FunctionComponent = () => {
         </Link>
       )}
 
-      <Button onClick={signOut} color="secondary" variant="contained">
+      <Button onClick={handleSignOut} color="secondary" variant="contained">
         Sign out
       </Button>
     </>
