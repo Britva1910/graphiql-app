@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { getAuth, signOut } from '@firebase/auth';
 
@@ -17,7 +17,6 @@ const Header: React.FunctionComponent = () => {
   const isCurrentRouteWelcomePage = pathname === '/';
 
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const handleSignOut = () => {
     const auth = getAuth();
@@ -28,7 +27,6 @@ const Header: React.FunctionComponent = () => {
       .catch((error) => {
         console.error(error);
       });
-    navigate('/');
   };
 
   const buttonsForAuthorized = (
@@ -41,9 +39,11 @@ const Header: React.FunctionComponent = () => {
         </Link>
       )}
 
-      <Button onClick={handleSignOut} color="secondary" variant="contained">
-        Sign out
-      </Button>
+      <Link to="/">
+        <Button onClick={handleSignOut} color="secondary" variant="contained">
+          Sign out
+        </Button>
+      </Link>
     </>
   );
 
