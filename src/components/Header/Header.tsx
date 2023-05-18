@@ -39,13 +39,13 @@ const Header: React.FunctionComponent = () => {
 
   const buttonsForUnauthenticated = (
     <>
-      <Link to="/sign-in">
+      <Link to="/login">
         <Button onClick={signIn} color="secondary" variant="contained">
           Sign in
         </Button>
       </Link>
 
-      <Link to="/sign-up">
+      <Link to="/register">
         <Button onClick={signIn} color="secondary" variant="contained">
           Sign up
         </Button>
