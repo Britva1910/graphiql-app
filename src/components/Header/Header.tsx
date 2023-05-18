@@ -1,27 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@mui/material';
 
+import { useAuth } from '../../hooks/use-auth';
 import Logo from '../Logo/Logo';
 
 import './Header.scss';
 
 const Header: React.FunctionComponent = () => {
-  // isAuthenticated state is only for now, since we don't have authentication yet
-  // i'll change that later
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const { isAuthorized } = useAuth();
 
-  const location = useLocation();
-  const isCurrentRouteWelcomePage = location.pathname === '/';
-
+  const { pathname } = useLocation();
+  const isCurrentRouteWelcomePage = pathname === '/';
   const navigate = useNavigate();
-  const signIn = () => setIsAuthenticated(true);
+
   const signOut = () => {
-    setIsAuthenticated(false);
     navigate('/');
   };
 
-  const buttonsForAuthenticated = (
+  const buttonsForAuthorized = (
     <>
       {isCurrentRouteWelcomePage && (
         <Link to="/main">
@@ -37,16 +34,16 @@ const Header: React.FunctionComponent = () => {
     </>
   );
 
-  const buttonsForUnauthenticated = (
+  const buttonsForUnauthorized = (
     <>
       <Link to="/login">
-        <Button onClick={signIn} color="secondary" variant="contained">
+        <Button color="secondary" variant="contained">
           Sign in
         </Button>
       </Link>
 
       <Link to="/register">
-        <Button onClick={signIn} color="secondary" variant="contained">
+        <Button color="secondary" variant="contained">
           Sign up
         </Button>
       </Link>
@@ -61,7 +58,7 @@ const Header: React.FunctionComponent = () => {
         </Link>
 
         <div className="navbar__right">
-          {isAuthenticated ? buttonsForAuthenticated : buttonsForUnauthenticated}
+          {isAuthorized ? buttonsForAuthorized : buttonsForUnauthorized}
         </div>
       </nav>
     </header>
