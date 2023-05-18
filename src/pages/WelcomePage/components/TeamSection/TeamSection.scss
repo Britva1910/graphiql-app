@@ -1,0 +1,21 @@
+@use '../../../../styles/colors' as *;
+
+.team-section {
+  min-height: 100vh;
+  padding-top: 4.5rem;
+
+  background-color: $cyan-300;
+  background-image: url('../../.././../assets/blurry-gradient.svg');
+  background-position: center;
+  background-size: cover;
+
+  &__heading {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 4rem;
+    color: $dark-blue-900;
+
+    text-align: center;
+    margin: auto;
+  }
+}

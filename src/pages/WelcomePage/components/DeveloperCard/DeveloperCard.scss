@@ -1,0 +1,56 @@
+@use '../../../../styles/colors' as *;
+
+.developer-card {
+  width: fit-content;
+  background-color: $dark-blue-800;
+  box-shadow: 0rem 0.25rem 1.875rem rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-bottom: 0.25rem;
+
+    .developer-card__name {
+      font-size: 1.2rem;
+      color: $slate-200;
+      font-weight: 400;
+      margin: 0;
+    }
+  }
+
+  &__content {
+    color: $slate-300;
+  }
+
+  &__property {
+    margin-left: 1.875rem;
+  }
+}
+
+.text-green {
+  color: $green-300;
+}
+
+.text-purple {
+  color: $purple-300;
+}
+
+.text-red {
+  color: $red-400;
+}
+
+.text-cyan {
+  color: $cyan-300;
+}
+
+.text-blue {
+  color: $blue-500;
+}
+
+.text-orange {
+  color: $orange-500;
+}

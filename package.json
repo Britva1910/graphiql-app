@@ -19,6 +19,7 @@
     "@mui/styled-engine-sc": "^5.12.0",
     "@reduxjs/toolkit": "^1.9.5",
     "ace-builds": "^1.19.0",
+    "firebase": "^9.22.0",
     "framer-motion": "^10.12.10",
     "graphiql": "^2.4.4",
     "graphql": "^16.6.0",
@@ -26,6 +27,7 @@
     "react": "^18.2.0",
     "react-ace": "^10.1.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.0",
     "styled-components": "^5.3.10"
