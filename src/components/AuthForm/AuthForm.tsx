@@ -14,27 +14,26 @@ const AuthForm: React.FC<IAuthFormProps> = ({ handleForm, formTitle }) => {
   const { register, handleSubmit } = useForm<IUserAuthData>();
 
   return (
-    <>
-      <h1>{formTitle}</h1>
-      <form
-        className="auth-form__wrapper"
-        onSubmit={handleSubmit(({ email, password }) => handleForm(email, password))}
-      >
-        <div>
-          <label>
-            Email
-            <input type="text" {...register('email')} />
-          </label>
+    <div className="auth-form__wrapper">
+      <h2 className="auth-form__title">{formTitle}</h2>
+      <form onSubmit={handleSubmit(({ email, password }) => handleForm(email, password))}>
+        <div className="auth-form__text-field">
+          <input className="text-field" type="text" required {...register('email')} />
+          <label>Email</label>
         </div>
-        <div>
-          <label>
-            Password
-            <input type="text" {...register('password')} />
-          </label>
+        <div className="auth-form__text-field">
+          <input className="text-field" type="password" required {...register('password')} />
+          <label>Password</label>
         </div>
-        <input type="submit" value="Submit" />
+        <button className="auth-form__btn" type="submit">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </button>
       </form>
-    </>
+    </div>
   );
 };
 

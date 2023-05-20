@@ -1,44 +1,25 @@
 import React from 'react';
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import { AuthForm } from '../../components/AuthForm/AuthForm';
 
+import './LoginPage.scss';
+
 const LoginPage = () => {
+  const navigate = useNavigate();
+
   const handleLogin = (email: string, password: string): void => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(auth);
+        console.log(userCredential);
+        navigate('/');
       })
       .catch((error) => {
         console.log(error.message);
       });
   };
 
-  const getToken = async () => {
-    const auth = getAuth();
-    const userToken = auth.currentUser?.getIdToken();
-    console.log(userToken);
-  };
-
-  const chackUser = () => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    console.log(user);
-  };
-
-  const singOut = () => {
-    const auth = getAuth();
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        console.log('sing out successful');
-      })
-      .catch(() => {
-        // An error happened.
-      });
-  };
-
-  //event subs
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -50,15 +31,9 @@ const LoginPage = () => {
   });
 
   return (
-    <>
+    <div className="login-page__wrapper">
       <AuthForm handleForm={handleLogin} formTitle="Login" />
-
-      <button onClick={getToken}>Get token</button>
-
-      <button onClick={chackUser}>Chack user</button>
-
-      <button onClick={singOut}>Sing out</button>
-    </>
+    </div>
   );
 };
 
