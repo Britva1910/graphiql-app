@@ -4,14 +4,25 @@
   display: grid;
   place-items: center;
 
-  height: 5rem;
+  min-height: 5rem;
   background-color: $dark-blue-900;
 
   &__navbar {
     width: min(90%, 100rem);
 
-    .navbar__link {
-      text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media (max-width: 26.25rem) {
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+
+    .navbar__right {
+      display: flex;
+      gap: 0.5rem;
     }
   }
 }

@@ -42,7 +42,7 @@ export const EditorField = () => {
       <Button
         variant="contained"
         onClick={handleGoButtonClick}
-        sx={{ position: 'absolute', left: '56%', top: '110px' }}
+        sx={{ position: 'absolute', left: '56%', top: '0' }}
       >
         Go
       </Button>
