@@ -27,10 +27,18 @@ $transition: 0.3s ease-out;
     color: $slate-200;
 
     transition: $transition;
+
+    @media (max-width: 36.25rem) {
+      display: none;
+    }
   }
 
   &:hover &__icon-wrapper {
     rotate: -5deg;
+
+    @media (max-width: 36.25rem) {
+      rotate: none;
+    }
   }
 
   &:hover &__text {
