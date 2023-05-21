@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import { IAlertSettings } from '../models/userData';
+import { IAlertSettings } from '../../models/userData';
 
 interface IAlertProps {
   settings: IAlertSettings | undefined;

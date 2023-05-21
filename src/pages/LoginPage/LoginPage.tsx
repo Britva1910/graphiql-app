@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { AuthForm } from '../../components/AuthForm/AuthForm';
-import { AlertModal } from '../../components/AlertModal';
+import { AlertModal } from '../../components/AlertModal/AlertModal';
 import { IAlertSettings } from '../../models/userData';
 
 import './LoginPage.scss';

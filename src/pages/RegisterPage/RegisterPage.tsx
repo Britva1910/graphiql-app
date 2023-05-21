@@ -3,7 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { AuthForm } from '../../components/AuthForm/AuthForm';
 import { useNavigate } from 'react-router-dom';
 import { IAlertSettings } from '../../models/userData';
-import { AlertModal } from '../../components/AlertModal';
+import { AlertModal } from '../../components/AlertModal/AlertModal';
 
 import './RegisterPage.scss';
 
