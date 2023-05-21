@@ -24,13 +24,13 @@
   input {
     width: 100%;
     padding: 10px 0;
-    font-size: 16px;
-    color: $slate-100;
     margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid $slate-100;
     outline: none;
     background: transparent;
+    font-size: 16px;
+    color: $slate-100;
   }
   label {
     position: absolute;
@@ -154,4 +154,11 @@
   100% {
     bottom: 100%;
   }
+}
+
+.error__message {
+  margin-top: -1rem;
+  margin-bottom: 3rem;
+  font-size: 0.8rem;
+  color: $red-400;
 }
