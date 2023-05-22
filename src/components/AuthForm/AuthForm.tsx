@@ -11,30 +11,57 @@ interface IAuthFormProps {
 }
 
 const AuthForm: React.FC<IAuthFormProps> = ({ handleForm, formTitle }) => {
-  const { register, handleSubmit } = useForm<IUserAuthData>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IUserAuthData>();
 
   return (
-    <>
-      <h1>{formTitle}</h1>
-      <form
-        className="auth-form__wrapper"
-        onSubmit={handleSubmit(({ email, password }) => handleForm(email, password))}
-      >
-        <div>
-          <label>
-            Email
-            <input type="text" {...register('email')} />
-          </label>
+    <div className="auth-form__wrapper">
+      <h1 className="auth-form__title">{formTitle}</h1>
+      <form onSubmit={handleSubmit(({ email, password }) => handleForm(email, password))}>
+        <div className="auth-form__text-field">
+          <input
+            className="text-field"
+            type="text"
+            {...register('email', {
+              required: 'Please enter your email',
+              pattern: {
+                value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+                message: 'Please enter correct email',
+              },
+            })}
+          />
+          {errors?.email && <p className="error__message">{errors?.email?.message as string}</p>}
+          <label>Email</label>
         </div>
-        <div>
-          <label>
-            Password
-            <input type="text" {...register('password')} />
-          </label>
+        <div className="auth-form__text-field">
+          <input
+            className="text-field"
+            type="password"
+            {...register('password', {
+              required: 'Please enter your password',
+              pattern: {
+                value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+                message: 'Minimum 8 symbols, at least one letter, one digit, one special character',
+              },
+            })}
+          />
+          {errors?.password && (
+            <p className="error__message">{errors?.password?.message as string}</p>
+          )}
+          <label>Password</label>
         </div>
-        <input type="submit" value="Submit" />
+        <button className="auth-form__btn" type="submit">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </button>
       </form>
-    </>
+    </div>
   );
 };
 
