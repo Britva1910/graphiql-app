@@ -19,7 +19,7 @@ const AuthForm: React.FC<IAuthFormProps> = ({ handleForm, formTitle }) => {
 
   return (
     <div className="auth-form__wrapper">
-      <h2 className="auth-form__title">{formTitle}</h2>
+      <h1 className="auth-form__title">{formTitle}</h1>
       <form onSubmit={handleSubmit(({ email, password }) => handleForm(email, password))}>
         <div className="auth-form__text-field">
           <input
