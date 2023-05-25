@@ -1,11 +1,24 @@
 @use '../../styles/colors' as *;
 
 .header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 5rem;
+
   display: grid;
   place-items: center;
 
-  min-height: 5rem;
+  z-index: 1;
   background-color: $dark-blue-900;
+
+  &.sticky {
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+    background-color: $dark-blue-900-transparent;
+    backdrop-filter: blur(10px);
+    animation: slideDown 0.35s ease-out;
+  }
 
   &__navbar {
     width: min(90%, 100rem);
@@ -24,5 +37,14 @@
       display: flex;
       gap: 0.5rem;
     }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
   }
 }

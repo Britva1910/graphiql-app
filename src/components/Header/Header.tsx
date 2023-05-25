@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { getAuth, signOut } from '@firebase/auth';
+import { useScroll, useMotionValueEvent } from 'framer-motion';
 
 import { useAppDispatch } from '../../hooks/redux-hooks';
 import { removeUser } from '../../storage/UserSlice';
@@ -63,8 +64,17 @@ const Header: React.FunctionComponent = () => {
     </>
   );
 
+  const [isSticky, setIsSticky] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const { scrollY } = useScroll();
+  const headerHeight = headerRef.current?.offsetHeight ?? 0;
+
+  useMotionValueEvent(scrollY, 'change', (scrollY) => {
+    setIsSticky(scrollY > headerHeight);
+  });
+
   return (
-    <header className="header">
+    <header ref={headerRef} className={`header ${isSticky && 'sticky'}`}>
       <nav className="header__navbar">
         <Link to="/" style={{ textDecoration: 'none' }}>
           <Logo />
