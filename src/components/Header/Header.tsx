@@ -30,18 +30,24 @@ const Header: React.FunctionComponent = () => {
       });
   };
 
+  const buttonStyle = {
+    background: '#00bfe6',
+    color: '#16161f',
+    ':hover': { background: '#00a2c2' },
+  };
+
   const buttonsForAuthorized = (
     <>
       {isCurrentRouteWelcomePage && (
         <Link to="/main">
-          <Button color="secondary" variant="contained">
-            Go to main page
+          <Button variant="contained" sx={buttonStyle}>
+            Main page
           </Button>
         </Link>
       )}
 
       <Link to="/">
-        <Button onClick={handleSignOut} color="secondary" variant="contained">
+        <Button onClick={handleSignOut} variant="contained" sx={buttonStyle}>
           Sign out
         </Button>
       </Link>
@@ -51,13 +57,13 @@ const Header: React.FunctionComponent = () => {
   const buttonsForUnauthorized = (
     <>
       <Link to="/login">
-        <Button color="secondary" variant="contained">
+        <Button variant="contained" sx={buttonStyle}>
           Sign in
         </Button>
       </Link>
 
       <Link to="/register">
-        <Button color="secondary" variant="contained">
+        <Button variant="contained" sx={buttonStyle}>
           Sign up
         </Button>
       </Link>

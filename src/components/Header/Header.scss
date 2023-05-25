@@ -15,23 +15,17 @@
 
   &.sticky {
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
-    background-color: $dark-blue-900-transparent;
+    background-color: $cyan-700-transparent;
     backdrop-filter: blur(10px);
     animation: slideDown 0.35s ease-out;
   }
 
   &__navbar {
-    width: min(90%, 100rem);
+    width: clamp(19rem, 90%, 100rem);
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-
-    @media (max-width: 26.25rem) {
-      flex-direction: column;
-      margin-bottom: 1rem;
-    }
 
     .navbar__right {
       display: flex;
