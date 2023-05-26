@@ -1,7 +1,6 @@
 @use '../../../../styles/colors' as *;
 
 .developer-card {
-  width: fit-content;
   background-color: $dark-blue-800;
   box-shadow: 0rem 0.25rem 1.875rem rgba(0, 0, 0, 0.5);
   border-radius: 0.5rem;
