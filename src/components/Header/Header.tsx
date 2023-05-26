@@ -8,6 +8,7 @@ import { useAppDispatch } from '../../hooks/redux-hooks';
 import { removeUser } from '../../storage/UserSlice';
 import { useAuth } from '../../hooks/use-auth';
 import Logo from '../Logo/Logo';
+import LanguageSelect from '../LanguageSelect/LanguageSelect';
 
 import './Header.scss';
 
@@ -87,6 +88,7 @@ const Header: React.FunctionComponent = () => {
         </Link>
 
         <div className="navbar__right">
+          <LanguageSelect />
           {isAuthorized ? buttonsForAuthorized : buttonsForUnauthorized}
         </div>
       </nav>
