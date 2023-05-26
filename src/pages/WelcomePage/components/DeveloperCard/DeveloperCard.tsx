@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import './DeveloperCard.scss';
 
@@ -6,6 +7,7 @@ interface DeveloperCardProps {
   firstName: string;
   lastName: string;
   githubUsername: string;
+  dragConstraints: React.RefObject<HTMLElement>;
 }
 
 const DeveloperCard: React.FunctionComponent<DeveloperCardProps> = (props) => {
@@ -46,7 +48,12 @@ const DeveloperCard: React.FunctionComponent<DeveloperCardProps> = (props) => {
   );
 
   return (
-    <div className="developer-card">
+    <motion.div
+      drag
+      dragConstraints={props.dragConstraints}
+      whileHover={{ cursor: 'move' }}
+      className="developer-card"
+    >
       <div className="developer-card__header">
         <code>
           <h3 className="developer-card__name">{fullName}</h3>
@@ -65,7 +72,7 @@ const DeveloperCard: React.FunctionComponent<DeveloperCardProps> = (props) => {
           <span>&#125;</span>
         </code>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
