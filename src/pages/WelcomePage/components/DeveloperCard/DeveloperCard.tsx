@@ -51,6 +51,7 @@ const DeveloperCard: React.FunctionComponent<DeveloperCardProps> = (props) => {
     <motion.div
       drag
       dragConstraints={props.dragConstraints}
+      dragElastic={0}
       whileHover={{ cursor: 'move' }}
       className="developer-card"
     >
