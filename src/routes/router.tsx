@@ -5,6 +5,7 @@ import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
 import RootLayout from '../layouts/RootLayout';
 import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage/RegisterPage';
+import { ProtectedRoute } from '../components/ProtectedRoute/ProtectedRoute';
 
 export const router = createBrowserRouter([
   {
@@ -17,15 +18,27 @@ export const router = createBrowserRouter([
       },
       {
         path: '/main',
-        element: <MainPage />,
+        element: (
+          <ProtectedRoute logged={true}>
+            <MainPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/login',
-        element: <LoginPage />,
+        element: (
+          <ProtectedRoute logged={false}>
+            <LoginPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/register',
-        element: <RegisterPage />,
+        element: (
+          <ProtectedRoute logged={false}>
+            <RegisterPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '*',
