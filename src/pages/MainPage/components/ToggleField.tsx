@@ -29,6 +29,7 @@ export default function ToggleButton() {
         <Box>
           <Box>
             <FormControlLabel
+              sx={{ marginLeft: '0' }}
               control={<Switch checked={checked} onChange={handleChange} />}
               label="Show"
             />

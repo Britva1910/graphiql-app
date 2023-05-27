@@ -7,7 +7,7 @@ i18n
   .use(initReactI18next)
   .init({
     debug: true,
-    fallbackLng: ['en', 'pl'],
+    fallbackLng: ['en', 'ru'],
     interpolation: {
       escapeValue: false,
     },
@@ -22,11 +22,12 @@ i18n
           },
         },
       },
-      pl: {
+      ru: {
         translation: {
           welcome: {
             project: {
-              subtitle: '— IDE dla żądań GraphQL z możliwościami uwierzytelniania i autoryzacji.',
+              subtitle:
+                '— песочница/IDE для запросов GraphQL с возможностями аутентификации и авторизации.',
             },
           },
         },

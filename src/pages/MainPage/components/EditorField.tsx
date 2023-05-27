@@ -16,7 +16,6 @@ export const EditorField = () => {
 
   const dispatch = useDispatch();
 
-  //add editor value in Store
   const handleEditorChange = (newValue: string) => {
     dispatch(setEditorValue(newValue));
   };

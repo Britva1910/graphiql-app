@@ -12,7 +12,7 @@ export const Headers: React.FunctionComponent = () => {
           mode="javascript"
           theme="solarized_dark"
           name="my-text-headers"
-          value="Headers"
+          value="Headers (optional)"
           width="100%"
           fontSize={14}
           showPrintMargin={true}

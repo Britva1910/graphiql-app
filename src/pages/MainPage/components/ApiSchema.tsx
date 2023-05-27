@@ -104,9 +104,8 @@ export default function ApiSchema() {
 
   return (
     <div>
-      <h1>GraphQL Schema</h1>
+      <h2>GraphQL Schema</h2>
       <div>
-        {/*Filter fields and chose active field for render */}
         {Object.values(schema.getTypeMap())
           .filter((item) => item.name === activeType[activeType.length - 1])
           .map((type) => renderType(type as GraphQLObjectType<unknown, unknown>))}
