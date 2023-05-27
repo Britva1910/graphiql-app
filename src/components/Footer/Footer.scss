@@ -64,10 +64,11 @@
     &__authors {
       flex-wrap: nowrap;
       flex-direction: column;
+      align-items: flex-start;
     }
 
     &__rs-logo {
-      text-align: end;
+      justify-self: end;
     }
   }
 }
