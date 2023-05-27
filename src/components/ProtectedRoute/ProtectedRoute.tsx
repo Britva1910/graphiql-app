@@ -15,7 +15,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, logged
   }
 
   if (isAuthorized && !logged) {
-    return <Navigate to="/" />;
+    return <Navigate to="/main" />;
   }
 
   return <React.Fragment>{children}</React.Fragment>;

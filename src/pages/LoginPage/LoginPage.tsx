@@ -39,7 +39,7 @@ const LoginPage = () => {
             id: userData.user.uid,
           })
         );
-        navigate('/');
+        navigate('/main');
       })
       .catch((error) => {
         if (error.code === 'auth/user-not-found') {
