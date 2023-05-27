@@ -11,3 +11,16 @@ a {
     cursor: pointer;
   }
 }
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: $dark-blue-900;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $cyan-300;
+  border-radius: 0.25rem;
+}
