@@ -6,9 +6,12 @@ import { AlertModal } from '../../components/AlertModal/AlertModal';
 import { IAlertSettings } from '../../models/userData';
 
 import './LoginPage.scss';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../storage/UserSlice';
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [alertSettings, setAlertSettings] = useState<IAlertSettings>();
 
@@ -23,13 +26,20 @@ const LoginPage = () => {
   const handleLogin = (email: string, password: string): void => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
+      .then((userData) => {
         setAlertSettings({
           severity: 'success',
           message: 'Welcome!',
         });
         openModal();
-        navigate('/');
+        dispatch(
+          setUser({
+            email: userData.user.email,
+            token: userData.user.refreshToken,
+            id: userData.user.uid,
+          })
+        );
+        navigate('/main');
       })
       .catch((error) => {
         if (error.code === 'auth/user-not-found') {
