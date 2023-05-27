@@ -15,7 +15,7 @@ export const Response = () => {
       <div style={{ display: 'flex', height: '100%' }}>
         <AceEditor
           mode="javascript"
-          theme="solarized_dark"
+          theme="cobalt"
           readOnly={true}
           name="my-text-response"
           value={responseValue ? responseValue : responseError}

@@ -6,7 +6,7 @@ export const Headers: React.FunctionComponent = () => {
       <div style={{ width: '100%' }}>
         <AceEditor
           mode="text"
-          theme="github"
+          theme="tomorrow_night_blue"
           name="my-text-response"
           value="Headers"
           width="100%"

@@ -6,7 +6,8 @@ import AceEditor from 'react-ace';
 /* import 'ace-builds/src-noconflict/mode-graphqlschema'; */
 
 import 'ace-builds/src-noconflict/mode-javascript';
-import 'ace-builds/src-noconflict/theme-solarized_dark';
+import 'ace-builds/src-noconflict/theme-cobalt';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../storage/store';
 import { setEditorValue } from '../../../storage/EditorFieldSlice';
@@ -49,7 +50,7 @@ export const EditorField = () => {
       <div style={{ display: 'flex', height: '100%' }}>
         <AceEditor
           mode="javascript"
-          theme="solarized_dark"
+          theme="cobalt"
           value={editorValue}
           name="my-text-editor"
           onChange={handleEditorChange}

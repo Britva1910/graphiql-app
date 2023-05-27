@@ -17,7 +17,7 @@ export const Variables: React.FunctionComponent = () => {
       <div style={{ width: '100%' }}>
         <AceEditor
           mode="javascript"
-          theme="solarized_dark"
+          theme="cobalt"
           name="my-text-variables"
           value={variablesValue}
           onChange={handleVariablesChange}
