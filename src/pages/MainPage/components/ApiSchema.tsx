@@ -38,7 +38,6 @@ export default function ApiSchema() {
 
   function handleClick(event: React.MouseEvent<HTMLElement>) {
     setActiveType([...activeType, event.currentTarget.innerText.replace(/[^a-zA-Z]/g, '')]);
-    /*     console.log('activeType :>> ', activeType); */
   }
 
   function handleBackClick() {
@@ -75,13 +74,6 @@ export default function ApiSchema() {
   };
 
   const renderType = (type: GraphQLObjectType<unknown, unknown>) => {
-    /*   if (!(type instanceof GraphQLObjectType) || type.name.startsWith('__')) {
-      // Skip introspection types
-      return null;
-    } */
-
-    /*     console.log('schema.getTypeMap', Object.values(schema.getTypeMap())); */
-
     if (type instanceof GraphQLScalarType) {
       return (
         <div key={type.name}>
@@ -95,8 +87,6 @@ export default function ApiSchema() {
         </div>
       );
     }
-
-    /*     console.log(type.name, Object.values(type.getFields())); */
 
     if (type instanceof GraphQLObjectType || GraphQLInputObjectType) {
       return (
@@ -124,33 +114,3 @@ export default function ApiSchema() {
     </div>
   );
 }
-
-/* Query -->
-  character --> type --> _fields
-                            created --> type --> description
-                                                    "описание"
-                            episode
-                            gender --> type --> scalarType
-                            id
-                            image
-                            location --> type --> _fields
-                                                    created
-                                                    dimension
-                                                    id
-                                                    name
-                                                    residents
-                                                    type
-                            name
-                            origin
-                            species
-                            status
-                            type
-                            
-  characters
-  charactersByIds
-  location
-  locations
-  locationsByIds
-  episode
-  episodes
-  episodesByIds */
