@@ -9,10 +9,12 @@ import { removeUser } from '../../storage/UserSlice';
 import { useAuth } from '../../hooks/use-auth';
 import Logo from '../Logo/Logo';
 import LanguageSelect from '../LanguageSelect/LanguageSelect';
+import { useTranslation } from 'react-i18next';
 
 import './Header.scss';
 
 const Header: React.FunctionComponent = () => {
+  const { t } = useTranslation();
   const { isAuthorized } = useAuth();
 
   const { pathname } = useLocation();
@@ -42,14 +44,14 @@ const Header: React.FunctionComponent = () => {
       {isCurrentRouteWelcomePage && (
         <Link to="/main">
           <Button variant="contained" sx={buttonStyle}>
-            Main page
+            {t('welcome.project.main')}
           </Button>
         </Link>
       )}
 
       <Link to="/">
         <Button onClick={handleSignOut} variant="contained" sx={buttonStyle}>
-          Sign out
+          {t('welcome.project.signOut')}
         </Button>
       </Link>
     </>
@@ -59,13 +61,13 @@ const Header: React.FunctionComponent = () => {
     <>
       <Link to="/login">
         <Button variant="contained" sx={buttonStyle}>
-          Sign in
+          {t('welcome.project.signIn')}
         </Button>
       </Link>
 
       <Link to="/register">
         <Button variant="contained" sx={buttonStyle}>
-          Sign up
+          {t('welcome.project.signUp')}
         </Button>
       </Link>
     </>

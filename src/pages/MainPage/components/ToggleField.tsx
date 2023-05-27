@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/ToggleButton';
-import ButtonGroup from '@mui/material/ToggleButtonGroup';
-import { Box, FormControlLabel, Grid, Slide, Switch } from '@mui/material';
 import { Headers } from './HeadersField';
 import { Variables } from './VariablesField';
 
+import Button from '@mui/material/ToggleButton';
+import ButtonGroup from '@mui/material/ToggleButtonGroup';
+import { Box, FormControlLabel, Grid, Slide, Switch } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+
 export default function ToggleButton() {
   const [selectedComponent, setSelectedComponent] = useState(<Variables />);
+  const { t } = useTranslation();
 
   const handleBtnClick = (e: React.MouseEvent<HTMLElement>) => {
     const clickedBtn = e.currentTarget.getAttribute('value');
@@ -31,7 +34,7 @@ export default function ToggleButton() {
             <FormControlLabel
               sx={{ marginLeft: '0' }}
               control={<Switch checked={checked} onChange={handleChange} />}
-              label="Show"
+              label={t('welcome.project.show')}
             />
             <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
               <Grid container sx={{ height: '20vh', background: 'teal', flexWrap: 'nowrap' }}>
@@ -42,10 +45,10 @@ export default function ToggleButton() {
                   aria-label="Platform"
                 >
                   <Button onClick={handleBtnClick} value="Var">
-                    Variables
+                    {t('welcome.project.var')}
                   </Button>
                   <Button onClick={handleBtnClick} value="Head">
-                    Headers
+                    {t('welcome.project.head')}
                   </Button>
                 </ButtonGroup>
 

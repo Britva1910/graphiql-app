@@ -10,6 +10,7 @@ import {
   GraphQLInputObjectType,
 } from 'graphql';
 import { GraphQLClient } from 'graphql-request';
+import { useTranslation } from 'react-i18next';
 
 const ENDPOINT = 'https://rickandmortyapi.com/graphql';
 const CLIENT = new GraphQLClient(ENDPOINT);
@@ -17,13 +18,13 @@ const CLIENT = new GraphQLClient(ENDPOINT);
 export default function ApiSchema() {
   const [schema, setSchema] = useState<GraphQLSchema | null>(null);
   const [activeType, setActiveType] = useState<string[]>(['Query']);
+  const { t } = useTranslation();
 
   useEffect(() => {
     CLIENT.request(getIntrospectionQuery())
       .then((response) => {
         const clientSchema = buildClientSchema(response as IntrospectionQuery);
         const schema = new GraphQLSchema({ query: clientSchema.getQueryType() });
-        console.log('schema :>> ', schema);
         setSchema(schema);
       })
       .catch((error) => {
@@ -104,7 +105,7 @@ export default function ApiSchema() {
 
   return (
     <div>
-      <h2>GraphQL Schema</h2>
+      <h2>{t('welcome.project.schema')}</h2>
       <div>
         {Object.values(schema.getTypeMap())
           .filter((item) => item.name === activeType[activeType.length - 1])

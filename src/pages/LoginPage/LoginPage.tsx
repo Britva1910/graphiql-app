@@ -8,8 +8,10 @@ import { IAlertSettings } from '../../models/userData';
 import './LoginPage.scss';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../storage/UserSlice';
+import { useTranslation } from 'react-i18next';
 
 const LoginPage = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
@@ -55,7 +57,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-page__wrapper">
-      <AuthForm handleForm={handleLogin} formTitle="Login" />
+      <AuthForm handleForm={handleLogin} formTitle={t('welcome.project.login')} />
       {showModal && <AlertModal onClose={closeModal} settings={alertSettings}></AlertModal>}
     </div>
   );

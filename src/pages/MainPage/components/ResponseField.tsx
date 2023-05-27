@@ -11,7 +11,6 @@ export const Response = () => {
   const responseValue = useSelector((state: RootState) => state.response.value);
   const responseError = useSelector((state: RootState) => state.response.error);
 
-  console.log('responseValue :>> ', responseValue);
   return (
     <>
       <div style={{ display: 'flex', height: '100%' }}>
