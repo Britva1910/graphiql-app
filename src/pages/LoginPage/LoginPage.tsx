@@ -57,7 +57,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-page__wrapper">
-      <AuthForm handleForm={handleLogin} formTitle={t('welcome.project.login')} />
+      <AuthForm handleForm={handleLogin} formTitle={t('welcome.authorization.title')} />
       {showModal && <AlertModal onClose={closeModal} settings={alertSettings}></AlertModal>}
     </div>
   );

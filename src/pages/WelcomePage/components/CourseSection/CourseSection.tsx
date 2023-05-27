@@ -20,7 +20,7 @@ const CourseSection: React.FunctionComponent = () => {
   return (
     <section className="course-section">
       <div className="section__inner">
-        <p className="course-section__paragraph">{t('welcome.project.footer')}</p>
+        <p className="course-section__paragraph">{t('welcome.footer.text')}</p>
 
         <p className="course-section__paragraph">
           ✨{' '}

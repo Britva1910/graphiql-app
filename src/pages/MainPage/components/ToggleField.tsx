@@ -34,7 +34,7 @@ export default function ToggleButton() {
             <FormControlLabel
               sx={{ marginLeft: '0' }}
               control={<Switch checked={checked} onChange={handleChange} />}
-              label={t('welcome.project.show')}
+              label={t('main.show')}
             />
             <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
               <Grid container sx={{ height: '20vh', background: 'teal', flexWrap: 'nowrap' }}>
@@ -45,10 +45,10 @@ export default function ToggleButton() {
                   aria-label="Platform"
                 >
                   <Button onClick={handleBtnClick} value="Var">
-                    {t('welcome.project.var')}
+                    {t('main.var')}
                   </Button>
                   <Button onClick={handleBtnClick} value="Head">
-                    {t('welcome.project.head')}
+                    {t('main.head')}
                   </Button>
                 </ButtonGroup>
 

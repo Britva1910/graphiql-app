@@ -105,7 +105,7 @@ export default function ApiSchema() {
 
   return (
     <div>
-      <h2>{t('welcome.project.schema')}</h2>
+      <h2>{t('main.schema')}</h2>
       <div>
         {Object.values(schema.getTypeMap())
           .filter((item) => item.name === activeType[activeType.length - 1])

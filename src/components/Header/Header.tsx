@@ -44,14 +44,14 @@ const Header: React.FunctionComponent = () => {
       {isCurrentRouteWelcomePage && (
         <Link to="/main">
           <Button variant="contained" sx={buttonStyle}>
-            {t('welcome.project.main')}
+            {t('welcome.header.main')}
           </Button>
         </Link>
       )}
 
       <Link to="/">
         <Button onClick={handleSignOut} variant="contained" sx={buttonStyle}>
-          {t('welcome.project.signOut')}
+          {t('welcome.header.signOut')}
         </Button>
       </Link>
     </>
@@ -61,13 +61,13 @@ const Header: React.FunctionComponent = () => {
     <>
       <Link to="/login">
         <Button variant="contained" sx={buttonStyle}>
-          {t('welcome.project.signIn')}
+          {t('welcome.header.signIn')}
         </Button>
       </Link>
 
       <Link to="/register">
         <Button variant="contained" sx={buttonStyle}>
-          {t('welcome.project.signUp')}
+          {t('welcome.header.signUp')}
         </Button>
       </Link>
     </>
