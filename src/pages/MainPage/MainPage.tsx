@@ -3,7 +3,6 @@ import * as React from 'react';
 import { CodeArea } from './components/CodeArea';
 import ToggleField from './components/ToggleField';
 
-/* import ApiSchema from './components/ApiSchema'; */
 import { Suspense, lazy } from 'react';
 
 const ApiSchema = lazy(() => import('./components/ApiSchema'));
@@ -20,7 +19,7 @@ export const MainPage: React.FunctionComponent = () => {
             item
             md={3}
             xs={12}
-            sx={{ background: 'white', overflow: 'scroll', height: '80vh' }}
+            sx={{ background: 'white', overflow: 'scroll', height: '80vh', padding: '10px' }}
           >
             <Suspense fallback={<div>Loading...</div>}>
               <ApiSchema />
@@ -33,6 +32,7 @@ export const MainPage: React.FunctionComponent = () => {
             item
             md={9}
             xs={12}
+            sx={{ height: '80vh' }}
             direction="column"
             justifyContent="space-around"
             alignItems="center"
