@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { isDesktop } from 'react-device-detect';
 
 import './DeveloperCard.scss';
 
@@ -49,8 +50,9 @@ const DeveloperCard: React.FunctionComponent<DeveloperCardProps> = (props) => {
 
   return (
     <motion.div
-      drag
+      drag={isDesktop}
       dragConstraints={props.dragConstraints}
+      dragElastic={0}
       whileHover={{ cursor: 'move' }}
       className="developer-card"
     >
