@@ -5,18 +5,20 @@ import { useTranslation } from 'react-i18next';
 import Button from '../../../../components/Button/Button';
 import Wave from '../Wave/Wave';
 import FloatingLogo from '../FloatingLogo/FloatingLogo';
+import { useAuth } from '../../../../hooks/use-auth';
 
 import './ProjectSection.scss';
 
 const ProjectSection: React.FunctionComponent = () => {
   const { t } = useTranslation();
+  const { isAuthorized } = useAuth();
 
   const left = (
     <div className="project-section__left">
       <h1 className="project-section__title">GraphiQL</h1>
       <h2 className="project-section__subtitle">{t('welcome.project.subtitle')}</h2>
       <h3 className="project-section__subsubtitle">{t('welcome.project.text')}</h3>
-      <Link to="/main">
+      <Link to={isAuthorized ? '/main' : '/login'}>
         <Button color="cyan">{t('welcome.project.callToAction')}</Button>
       </Link>
     </div>
