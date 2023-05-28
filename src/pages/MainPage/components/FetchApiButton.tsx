@@ -32,10 +32,13 @@ const FetchApiButton: React.FC = () => {
     await fetchDataFromApi(query, variables, dispatch);
   };
 
+  const isButtonDisabled = query === '';
+
   return (
     <Button
       variant="contained"
       onClick={handleClick}
+      disabled={isButtonDisabled}
       sx={{
         position: 'absolute',
         bottom: '.5rem',
