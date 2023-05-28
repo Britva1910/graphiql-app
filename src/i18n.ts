@@ -43,6 +43,8 @@ i18n
             },
             footer: {
               text: 'We made this project for',
+              link: 'React Course',
+              preposition: 'in',
             },
           },
           main: {
@@ -83,6 +85,8 @@ i18n
             },
             footer: {
               text: 'Это все возможно благодаря',
+              link: 'Курс по React',
+              preposition: 'от',
             },
           },
           main: {

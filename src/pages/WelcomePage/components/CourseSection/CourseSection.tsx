@@ -30,13 +30,13 @@ const CourseSection: React.FunctionComponent = () => {
             target="_blank"
             rel="noreferrer"
           >
-            React Course
+            {t('welcome.footer.link')}
           </a>{' '}
           ✨
         </p>
 
         <span className="inline">
-          <span className="course-section__paragraph">in</span>
+          <span className="course-section__paragraph">{t('welcome.footer.preposition')}</span>
           <span className="whitespace"></span>
           <a className="rs-link" href="https://rs.school/" target="_blank" rel="noreferrer">
             <RSLogo height="3rem" />
