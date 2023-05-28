@@ -1,17 +1,18 @@
+@use '../../styles/colors' as *;
+
 #ApiSchema {
-  background: #002B36;
-  overflow: scroll;
-  overflow-x: hidden;
-  height: 80vh; 
-  padding: 10px;
-    @media (max-width: 900px) {
-      height: 60vh;
-    } 
+  background: $dark-blue-900;
+  overflow: auto;
+  height: 80vh;
+  border-radius: 0.5rem;
+  @media (max-width: 900px) {
+    height: 60vh;
+  }
 }
 
-#CodeArea{
+#CodeArea {
   height: 80vh;
-    @media (max-width: 900px) {
-      height: 120vh;
-    } 
+  @media (max-width: 900px) {
+    height: 120vh;
+  }
 }

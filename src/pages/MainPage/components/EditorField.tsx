@@ -1,18 +1,17 @@
 import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { Button } from '@mui/material';
 import AceEditor from 'react-ace';
 
 import 'ace-builds/src-noconflict/mode-javascript';
-import 'ace-builds/src-noconflict/theme-solarized_dark';
-import { useDispatch, useSelector } from 'react-redux';
+import 'ace-builds/src-noconflict/theme-cobalt';
+
 import { RootState } from '../../../storage/store';
 import { setEditorValue } from '../../../storage/EditorFieldSlice';
-import { fetchDataFromApi } from '../../../utils/ApiRequest';
+import FetchApiButton from './FetchApiButton';
 
-export const EditorField = () => {
+export const EditorField: React.FC = () => {
   const editorValue = useSelector((state: RootState) => state.editor.value);
-  const variablesValue = useSelector((state: RootState) => state.editor.variables);
 
   const dispatch = useDispatch();
 
@@ -20,50 +19,29 @@ export const EditorField = () => {
     dispatch(setEditorValue(newValue));
   };
 
-  // get API request
-  const handleGoButtonClick = async () => {
-    const query = editorValue;
-
-    //catch parse error when user input is invalid variables value
-    let variables;
-    try {
-      variables = JSON.parse(variablesValue);
-    } catch (error) {
-      variables = {};
-    }
-    await fetchDataFromApi(query, variables, dispatch);
-  };
-
   return (
-    <>
-      <Button
-        variant="contained"
-        onClick={handleGoButtonClick}
-        sx={{ position: 'absolute', left: '56%', top: '1.3rem' }}
-      >
-        Go
-      </Button>
-      <div style={{ display: 'flex', height: '100%' }}>
-        <AceEditor
-          mode="javascript"
-          theme="solarized_dark"
-          value={editorValue}
-          name="my-text-editor"
-          onChange={handleEditorChange}
-          width="100%"
-          fontSize={14}
-          showPrintMargin={true}
-          showGutter={true}
-          highlightActiveLine={true}
-          editorProps={{ $blockScrolling: Infinity }}
-          style={{ height: '100%' }}
-          wrapEnabled={true}
-          setOptions={{
-            showLineNumbers: true,
-            tabSize: 2,
-          }}
-        />
-      </div>
-    </>
+    <div style={{ display: 'flex', height: '100%', position: 'relative' }}>
+      <FetchApiButton />
+
+      <AceEditor
+        mode="javascript"
+        theme="cobalt"
+        value={editorValue}
+        name="my-text-editor"
+        onChange={handleEditorChange}
+        width="100%"
+        fontSize={14}
+        showPrintMargin={true}
+        showGutter={true}
+        highlightActiveLine={true}
+        editorProps={{ $blockScrolling: Infinity }}
+        style={{ height: '100%' }}
+        wrapEnabled={true}
+        setOptions={{
+          showLineNumbers: true,
+          tabSize: 2,
+        }}
+      />
+    </div>
   );
 };

@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import AceEditor from 'react-ace';
+
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-solarized_dark';
 
@@ -20,7 +20,7 @@ export const Variables: React.FunctionComponent = () => {
       <div style={{ width: '100%' }}>
         <AceEditor
           mode="javascript"
-          theme="solarized_dark"
+          theme="cobalt"
           name="my-text-variables"
           value={variablesValue}
           onChange={handleVariablesChange}

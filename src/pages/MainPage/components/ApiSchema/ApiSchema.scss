@@ -1,0 +1,50 @@
+@use '../../../../styles/colors' as *;
+
+.schema {
+  background-color: $dark-blue-900;
+  height: 100%;
+  padding: 1rem;
+  font-family: 'Roboto Condensed', sans-serif;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: $slate-300;
+  }
+
+  &__back {
+    font-size: 1.1rem;
+    color: $blue-600;
+  }
+
+  &__type {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .field {
+    &__name {
+      color: $blue-500;
+    }
+
+    &__arg {
+      color: $orange-500;
+      margin-left: 0.8rem;
+
+      &-type {
+        color: $red-400;
+      }
+    }
+
+    &__type {
+      color: $green-300;
+    }
+
+    &__description {
+      color: $slate-200;
+      font-family: 'Roboto', sans-serif;
+      padding-bottom: 2.5rem;
+    }
+  }
+}

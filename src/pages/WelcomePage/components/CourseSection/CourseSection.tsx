@@ -1,7 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import RSLogo from '../../../../components/RSLogo/RSLogo';
-import { useTranslation } from 'react-i18next';
 
 import './CourseSection.scss';
 
@@ -38,7 +38,9 @@ const CourseSection: React.FunctionComponent = () => {
         <span className="inline">
           <span className="course-section__paragraph">in</span>
           <span className="whitespace"></span>
-          <RSLogo height="3rem" />
+          <a className="rs-link" href="https://rs.school/" target="_blank" rel="noreferrer">
+            <RSLogo height="3rem" />
+          </a>
         </span>
       </div>
       {Wave}
