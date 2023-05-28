@@ -10,7 +10,7 @@ import 'ace-builds/src-noconflict/theme-cobalt';
 
 import { RootState } from '../../../storage/store';
 import { setEditorValue } from '../../../storage/EditorFieldSlice';
-import RunButton from './FetchApiButton';
+import FetchApiButton from './FetchApiButton';
 
 export const EditorField: React.FC = () => {
   const editorValue = useSelector((state: RootState) => state.editor.value);
@@ -25,7 +25,7 @@ export const EditorField: React.FC = () => {
   return (
     <>
       <div style={{ display: 'flex', height: '100%', position: 'relative' }}>
-        <RunButton />
+        <FetchApiButton />
 
         <AceEditor
           mode="javascript"
