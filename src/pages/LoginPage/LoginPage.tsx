@@ -31,7 +31,7 @@ const LoginPage = () => {
       .then((userData) => {
         setAlertSettings({
           severity: 'success',
-          message: `${t('welcome.authorization.success')}`,
+          message: `${t('welcome.authorization.successLogin')}`,
         });
         openModal();
         dispatch(
