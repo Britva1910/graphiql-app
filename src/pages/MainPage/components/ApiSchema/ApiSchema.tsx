@@ -11,6 +11,8 @@ import {
 } from 'graphql';
 import { GraphQLClient } from 'graphql-request';
 
+import './ApiSchema.scss';
+
 const ENDPOINT = 'https://rickandmortyapi.com/graphql';
 const CLIENT = new GraphQLClient(ENDPOINT);
 
@@ -47,29 +49,29 @@ export default function ApiSchema() {
 
   const renderField = (field: GraphQLField<unknown, unknown>) => {
     return (
-      <div key={field.name}>
-        <strong style={{ color: 'rgb(95, 137, 216)' }}>{field.name}</strong>
-        (
-        <br />
-        {field.args &&
-          field.args.map((arg) => (
-            <span key={arg.name} style={{ color: 'rgb(255, 107, 139)' }}>
-              {arg.name}:{' '}
-              <a style={{ color: 'rgb(235, 156, 0)' }} onClick={handleClick}>
-                {arg.type.toString()}
-              </a>
-              <br />
-            </span>
-          ))}
-        )
-        <span>
-          {' '}
-          :{' '}
-          <a style={{ color: 'rgb(235, 156, 0)' }} onClick={handleClick}>
-            {field.type.toString()}
-          </a>{' '}
-        </span>
-        {field.description && <p>{field.description}</p>}
+      <div key={field.name} className="field">
+        <code>
+          <strong className="field__name">{field.name}</strong> (<br />
+          {field.args &&
+            field.args.map((arg) => (
+              <span key={arg.name} className="field__arg">
+                {arg.name}:{' '}
+                <a className="field__arg-type" onClick={handleClick}>
+                  {arg.type.toString()}
+                </a>
+                <br />
+              </span>
+            ))}
+          )
+          <span>
+            {' '}
+            :{' '}
+            <a className="field__type" onClick={handleClick}>
+              {field.type.toString()}
+            </a>{' '}
+          </span>
+        </code>
+        {field.description && <p className="field__description">{field.description}</p>}
       </div>
     );
   };
@@ -101,10 +103,10 @@ export default function ApiSchema() {
     if (type instanceof GraphQLObjectType || GraphQLInputObjectType) {
       return (
         <div key={type.name}>
-          <a onClick={handleBackClick} style={{ color: 'rgb(95, 137, 216)' }}>
+          <a onClick={handleBackClick} className="schema__back">
             {activeType.length === 1 ? '' : `< ${activeType[activeType.length - 2]}`}
           </a>
-          <h3>{type.name}</h3>
+          <h3 className="schema__type">{type.name}</h3>
           {type.description && <p>{type.description}</p>}
           {Object.values(type.getFields()).map(renderField)}
         </div>
@@ -113,15 +115,15 @@ export default function ApiSchema() {
   };
 
   return (
-    <div>
-      <h1>GraphQL Schema</h1>
-      <div>
+    <section className="schema">
+      <h1 className="schema__title">GraphQL Schema</h1>
+      <>
         {/*Filter fields and chose active field for render */}
         {Object.values(schema.getTypeMap())
           .filter((item) => item.name === activeType[activeType.length - 1])
           .map((type) => renderType(type as GraphQLObjectType<unknown, unknown>))}
-      </div>
-    </div>
+      </>
+    </section>
   );
 }
 
