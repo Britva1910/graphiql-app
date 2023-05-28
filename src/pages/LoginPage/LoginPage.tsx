@@ -31,7 +31,7 @@ const LoginPage = () => {
       .then((userData) => {
         setAlertSettings({
           severity: 'success',
-          message: 'Welcome!',
+          message: `${t('welcome.authorization.success')}`,
         });
         openModal();
         dispatch(
@@ -47,7 +47,7 @@ const LoginPage = () => {
         if (error.code === 'auth/user-not-found') {
           setAlertSettings({
             severity: 'error',
-            message: 'This user does not exist. Please check the entered data or register',
+            message: `${t('welcome.authorization.wrongUser')}`,
           });
           openModal();
           console.log(error.code);

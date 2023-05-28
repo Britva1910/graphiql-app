@@ -16,7 +16,17 @@ i18n
         translation: {
           welcome: {
             authorization: {
-              title: 'Login',
+              title: 'Sign in',
+              success: 'Welcome!',
+              wrongUser: 'This user does not exist. Please check the entered data or register',
+              emailLabel: 'Email',
+              emptyEmail: 'Please enter your email',
+              invalidEmail: 'Please enter correct email',
+              passwordLabel: 'Password',
+              emptyPassword: 'Please enter your password',
+              invalidPassword:
+                'Minimum 8 symbols, at least one letter, one digit, one special character',
+              submit: 'Submit',
             },
             header: {
               main: 'Main page',
@@ -47,7 +57,16 @@ i18n
         translation: {
           welcome: {
             authorization: {
-              title: 'Login',
+              title: 'Авторизация',
+              success: 'Добро пожаловать!',
+              wrongUser: 'Такой пользователь не существует. Проверьте ввод или регистр.',
+              emailLabel: 'Почта',
+              emptyEmail: 'Введи почту',
+              invalidEmail: 'Введи правильный адрес почты',
+              passwordLabel: 'Пароль',
+              emptyPassword: 'Введи пароль',
+              invalidPassword: 'Минимум 8 символов, из них одна буква, одна цифра, один спецсимовл',
+              submit: 'Отправить',
             },
             header: {
               main: 'Главная',
