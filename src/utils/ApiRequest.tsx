@@ -10,8 +10,7 @@ export async function fetchDataFromApi(query: string, variables: Variables, disp
     const data = await CLIENT.request(query, variables);
     const responseText = JSON.stringify(data, null, '\t');
     dispatch(setResponseValue(responseText));
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
+  } catch (error: unknown) {
     const eroorText: string = JSON.stringify(error.response.errors[0], null, '\t');
 
     dispatch(setErrorValue(eroorText));
