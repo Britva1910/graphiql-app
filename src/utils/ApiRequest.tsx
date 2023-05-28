@@ -6,14 +6,14 @@ export async function fetchDataFromApi(query: string, variables: Variables, disp
   const ENDPOINT = 'https://rickandmortyapi.com/graphql';
   const CLIENT = new GraphQLClient(ENDPOINT);
 
-  try {
-    const data = await CLIENT.request(query, variables);
-    const responseText = JSON.stringify(data, null, '\t');
-    dispatch(setResponseValue(responseText));
-  } catch (error: unknown) {
-    const eroorText: string = JSON.stringify(error.response.errors[0], null, '\t');
-
-    dispatch(setErrorValue(eroorText));
-    dispatch(setResponseValue(''));
-  }
+  CLIENT.request(query, variables)
+    .then((data) => JSON.stringify(data, null, '\t'))
+    .then((responseText) => {
+      dispatch(setResponseValue(responseText));
+    })
+    .catch((error) => {
+      const errorText: string = JSON.stringify(error.response.errors[0], null, '\t');
+      dispatch(setErrorValue(errorText));
+      dispatch(setResponseValue(''));
+    });
 }
