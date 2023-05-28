@@ -50,7 +50,13 @@ const LoginPage = () => {
             message: 'This user does not exist. Please check the entered data or register',
           });
           openModal();
-          console.log(error.code);
+        }
+        if (error.code === 'auth/wrong-password') {
+          setAlertSettings({
+            severity: 'error',
+            message: 'The password is incorrect. Please input correct password',
+          });
+          openModal();
         }
       });
   };
@@ -58,7 +64,9 @@ const LoginPage = () => {
   return (
     <div className="login-page__wrapper">
       <AuthForm handleForm={handleLogin} formTitle={t('welcome.authorization.title')} />
-      {showModal && <AlertModal onClose={closeModal} settings={alertSettings}></AlertModal>}
+      <div className="login_error-message">
+        {showModal && <AlertModal onClose={closeModal} settings={alertSettings}></AlertModal>}
+      </div>
     </div>
   );
 };
