@@ -15,7 +15,7 @@ const LanguageSelect: React.FunctionComponent = () => {
         defaultValue={i18n.language}
       >
         <option value="en">English</option>
-        <option value="pl">Polski</option>
+        <option value="ru">Русский</option>
       </select>
     </div>
   );

@@ -7,7 +7,7 @@ i18n
   .use(initReactI18next)
   .init({
     debug: true,
-    fallbackLng: ['en', 'pl'],
+    fallbackLng: ['en', 'ru'],
     interpolation: {
       escapeValue: false,
     },
@@ -15,19 +15,62 @@ i18n
       en: {
         translation: {
           welcome: {
+            authorization: {
+              title: 'Login',
+            },
+            header: {
+              main: 'Main page',
+              signOut: 'Sign out',
+              signIn: 'Sign in',
+              signUp: 'Sign Up',
+            },
             project: {
               subtitle:
                 '— a playground/IDE for GraphQL requests with authentication and authorization capabilities.',
+              text: 'It allows authorized users to explore, edit and test GraphQL queries, mutations and subscriptions.',
+              callToAction: 'Try it now',
+              team: 'Meet our team!',
             },
+            footer: {
+              text: 'We made this project for',
+            },
+          },
+          main: {
+            schema: 'GraphQL Schema',
+            show: 'Show',
+            var: 'Variables',
+            head: 'Headers',
           },
         },
       },
-      pl: {
+      ru: {
         translation: {
           welcome: {
-            project: {
-              subtitle: '— IDE dla żądań GraphQL z możliwościami uwierzytelniania i autoryzacji.',
+            authorization: {
+              title: 'Login',
             },
+            header: {
+              main: 'Главная',
+              signOut: 'Выйти',
+              signIn: 'Войти',
+              signUp: 'Зарегистрироваться',
+            },
+            project: {
+              subtitle:
+                '— песочница/IDE для запросов GraphQL с возможностями аутентификации и авторизации.',
+              text: 'Авторизованные пользователи могут изучать, редактировать и тестировать запросы GraphQL, мутации и подписки.',
+              callToAction: 'Попробовать',
+              team: 'Наша команда!',
+            },
+            footer: {
+              text: 'Это все возможно благодаря',
+            },
+          },
+          main: {
+            schema: 'GraphQL схема',
+            show: 'Показать',
+            var: 'Переменные',
+            head: 'Заголовки',
           },
         },
       },

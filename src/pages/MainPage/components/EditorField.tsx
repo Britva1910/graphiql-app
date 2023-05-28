@@ -3,8 +3,6 @@ import * as React from 'react';
 import { Button } from '@mui/material';
 import AceEditor from 'react-ace';
 
-/* import 'ace-builds/src-noconflict/mode-graphqlschema'; */
-
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-solarized_dark';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,7 +16,6 @@ export const EditorField = () => {
 
   const dispatch = useDispatch();
 
-  //add editor value in Store
   const handleEditorChange = (newValue: string) => {
     dispatch(setEditorValue(newValue));
   };
@@ -62,9 +59,6 @@ export const EditorField = () => {
           style={{ height: '100%' }}
           wrapEnabled={true}
           setOptions={{
-            /*   enableBasicAutocompletion: false,
-            enableLiveAutocompletion: true, */
-            enableSnippets: true,
             showLineNumbers: true,
             tabSize: 2,
           }}

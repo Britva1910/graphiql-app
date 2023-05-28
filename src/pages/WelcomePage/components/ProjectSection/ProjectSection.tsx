@@ -15,12 +15,9 @@ const ProjectSection: React.FunctionComponent = () => {
     <div className="project-section__left">
       <h1 className="project-section__title">GraphiQL</h1>
       <h2 className="project-section__subtitle">{t('welcome.project.subtitle')}</h2>
-      <h3 className="project-section__subsubtitle">
-        It allows authorized users to explore, edit and test GraphQL queries, mutations and
-        subscriptions.
-      </h3>
+      <h3 className="project-section__subsubtitle">{t('welcome.project.text')}</h3>
       <Link to="/main">
-        <Button color="cyan">Try it now</Button>
+        <Button color="cyan">{t('welcome.project.callToAction')}</Button>
       </Link>
     </div>
   );

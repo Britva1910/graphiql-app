@@ -3,25 +3,20 @@ import * as React from 'react';
 import { CodeArea } from './components/CodeArea';
 import ToggleField from './components/ToggleField';
 
-/* import ApiSchema from './components/ApiSchema'; */
 import { Suspense, lazy } from 'react';
 
 const ApiSchema = lazy(() => import('./components/ApiSchema'));
 
 import { Container, Grid } from '@mui/material';
 
+import './MainPage.scss';
+
 export const MainPage: React.FunctionComponent = () => {
   return (
     <div style={{ position: 'relative' }}>
-      <h1>Main page</h1>
       <Container maxWidth={false}>
         <Grid container>
-          <Grid
-            item
-            md={3}
-            xs={12}
-            sx={{ background: 'white', overflow: 'scroll', height: '80vh' }}
-          >
+          <Grid id="ApiSchema" item md={3} xs={12}>
             <Suspense fallback={<div>Loading...</div>}>
               <ApiSchema />
             </Suspense>

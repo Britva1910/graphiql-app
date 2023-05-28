@@ -12,8 +12,7 @@ export async function fetchDataFromApi(query: string, variables: Variables, disp
     dispatch(setResponseValue(responseText));
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    console.error(error.message); //прикрутитть сюда alert который у вани
-    const eroorText = JSON.stringify(error.response.errors[0], null, '\t');
+    const eroorText: string = JSON.stringify(error.response.errors[0], null, '\t');
 
     dispatch(setErrorValue(eroorText));
     dispatch(setResponseValue(''));

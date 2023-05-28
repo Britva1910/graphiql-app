@@ -1,16 +1,18 @@
 import React, { useRef } from 'react';
 
 import DeveloperCard from '../DeveloperCard/DeveloperCard';
+import { useTranslation } from 'react-i18next';
 
 import './TeamSection.scss';
 
 const TeamSection: React.FunctionComponent = () => {
   const teamSectionRef = useRef(null);
+  const { t } = useTranslation();
 
   return (
     <section className="team-section" ref={teamSectionRef}>
       <div className="section__inner">
-        <h2 className="team-section__heading">Meet our team!</h2>
+        <h2 className="team-section__heading">{t('welcome.project.team')}</h2>
         <div className="team-section__developers">
           <DeveloperCard
             firstName="Ivan"

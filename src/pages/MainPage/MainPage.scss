@@ -1,0 +1,17 @@
+#ApiSchema {
+  background: #002B36;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 80vh; 
+  padding: 10px;
+    @media (max-width: 900px) {
+      height: 60vh;
+    } 
+}
+
+#CodeArea{
+  height: 80vh;
+    @media (max-width: 900px) {
+      height: 120vh;
+    } 
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import RSLogo from '../../../../components/RSLogo/RSLogo';
+import { useTranslation } from 'react-i18next';
 
 import './CourseSection.scss';
 
@@ -15,10 +16,11 @@ const Wave = (
 );
 
 const CourseSection: React.FunctionComponent = () => {
+  const { t } = useTranslation();
   return (
     <section className="course-section">
       <div className="section__inner">
-        <p className="course-section__paragraph">We made this project for</p>
+        <p className="course-section__paragraph">{t('welcome.footer.text')}</p>
 
         <p className="course-section__paragraph">
           ✨{' '}
