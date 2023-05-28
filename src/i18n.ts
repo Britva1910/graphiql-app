@@ -20,7 +20,7 @@ i18n
               successLogin: 'Welcome!',
               successReg: 'You have been successfully registered. Please login',
               invalidReg: 'Ooops...',
-              regTitle: 'Sigт up',
+              regTitle: 'Sign up',
               wrongUser: 'This user does not exist. Please check the entered data or register',
               emailLabel: 'Email',
               emptyEmail: 'Please enter your email',
