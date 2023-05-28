@@ -23,7 +23,12 @@ const AlertModal: React.FC<IAlertProps> = ({ settings, onClose }) => {
             <CloseIcon fontSize="inherit" />
           </IconButton>
         }
-        sx={{ position: 'absolute', left: 'calc(50% - 150px)', width: 300 }}
+        sx={{
+          position: 'absolute',
+          left: 'calc(50% - 141px)',
+          top: '12%',
+          width: 250,
+        }}
         severity={settings?.severity}
       >
         {settings?.message}

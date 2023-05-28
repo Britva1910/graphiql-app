@@ -58,14 +58,15 @@ const LoginPage = () => {
           });
           openModal();
         }
-        console.log(error.code);
       });
   };
 
   return (
     <div className="login-page__wrapper">
       <AuthForm handleForm={handleLogin} formTitle={t('welcome.authorization.title')} />
-      {showModal && <AlertModal onClose={closeModal} settings={alertSettings}></AlertModal>}
+      <div className="login_error-message">
+        {showModal && <AlertModal onClose={closeModal} settings={alertSettings}></AlertModal>}
+      </div>
     </div>
   );
 };
