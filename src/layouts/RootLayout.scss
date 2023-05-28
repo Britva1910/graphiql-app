@@ -1,0 +1,11 @@
+@use '../styles/colors' as *;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: $dark-blue-800;
+  flex-grow: 1;
+  color: $slate-300;
+}

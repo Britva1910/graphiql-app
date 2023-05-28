@@ -1,0 +1,26 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: $dark-blue-900;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $cyan-300;
+  border-radius: 0.25rem;
+}

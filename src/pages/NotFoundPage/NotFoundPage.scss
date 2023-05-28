@@ -1,0 +1,19 @@
+.not-found-page {
+  width: min(95%, 80rem);
+  margin: 3rem auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .sad-miku-gif {
+    max-width: 100%;
+  }
+
+  .sad-miku-text {
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-bottom: 2.5rem;
+  }
+}
