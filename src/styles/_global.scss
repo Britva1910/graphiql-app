@@ -17,10 +17,10 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(10, 18, 37);
+  background: $dark-blue-900;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(148, 163, 184);
+  background: $cyan-300;
   border-radius: 0.25rem;
 }
