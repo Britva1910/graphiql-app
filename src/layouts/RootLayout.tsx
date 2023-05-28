@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 import './RootLayout.scss';
 
@@ -12,7 +13,7 @@ const RootLayout: React.FunctionComponent = () => {
       <main className="main">
         <Outlet />
       </main>
-      <footer className="footer"></footer>
+      <Footer />
     </>
   );
 };
