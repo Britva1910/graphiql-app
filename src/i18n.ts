@@ -17,7 +17,10 @@ i18n
           welcome: {
             authorization: {
               title: 'Sign in',
-              success: 'Welcome!',
+              successLogin: 'Welcome!',
+              successReg: 'You have been successfully registered. Please login',
+              invalidReg: 'Ooops...',
+              regTitle: 'Sigт up',
               wrongUser: 'This user does not exist. Please check the entered data or register',
               emailLabel: 'Email',
               emptyEmail: 'Please enter your email',
@@ -43,6 +46,8 @@ i18n
             },
             footer: {
               text: 'We made this project for',
+              link: 'React Course',
+              preposition: 'in',
             },
           },
           main: {
@@ -59,7 +64,10 @@ i18n
             authorization: {
               title: 'Авторизация',
               success: 'Добро пожаловать!',
-              wrongUser: 'Такой пользователь не существует. Проверьте ввод или регистр.',
+              successReg: 'Вы зарегистрированы. Войдите в свой профиль.',
+              invalidReg: 'Ой...',
+              regTitle: 'Регистрация',
+              wrongUser: 'Такой пользователь не существует. Проверьте ввод или зарегистрируйтесь.',
               emailLabel: 'Почта',
               emptyEmail: 'Введи почту',
               invalidEmail: 'Введи правильный адрес почты',
@@ -83,6 +91,8 @@ i18n
             },
             footer: {
               text: 'Это все возможно благодаря',
+              link: 'Курс по React',
+              preposition: 'от',
             },
           },
           main: {

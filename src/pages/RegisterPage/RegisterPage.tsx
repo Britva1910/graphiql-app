@@ -6,11 +6,13 @@ import { IAlertSettings } from '../../models/userData';
 import { AlertModal } from '../../components/AlertModal/AlertModal';
 
 import './RegisterPage.scss';
+import { useTranslation } from 'react-i18next';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [alertSettings, setAlertSettings] = useState<IAlertSettings>();
+  const { t } = useTranslation();
 
   const openModal = () => {
     setShowModal(true);
@@ -26,7 +28,7 @@ const RegisterPage = () => {
       .then(() => {
         setAlertSettings({
           severity: 'success',
-          message: 'You have been successfully registered. Please login',
+          message: `${t('welcome.authorization.successReg')}`,
         });
         openModal();
         navigate('/login');
@@ -34,14 +36,14 @@ const RegisterPage = () => {
       .catch(() => {
         setAlertSettings({
           severity: 'error',
-          message: 'Ooops...',
+          message: `${t('welcome.authorization.invalidReg')}`,
         });
         openModal();
       });
   };
   return (
     <div className="register-page__wrapper">
-      <AuthForm handleForm={handleSingUp} formTitle="Sing up" />
+      <AuthForm handleForm={handleSingUp} formTitle={t('welcome.authorization.regTitle')} />
       {showModal && <AlertModal onClose={closeModal} settings={alertSettings}></AlertModal>}
     </div>
   );
