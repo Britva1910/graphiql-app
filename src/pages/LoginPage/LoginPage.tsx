@@ -50,8 +50,15 @@ const LoginPage = () => {
             message: 'This user does not exist. Please check the entered data or register',
           });
           openModal();
-          console.log(error.code);
         }
+        if (error.code === 'auth/wrong-password') {
+          setAlertSettings({
+            severity: 'error',
+            message: 'The password is incorrect. Please input correct password',
+          });
+          openModal();
+        }
+        console.log(error.code);
       });
   };
 
