@@ -1,12 +1,14 @@
 import * as React from 'react';
+
 import AceEditor from 'react-ace';
+
 export const Headers: React.FunctionComponent = () => {
   return (
     <>
       <div style={{ width: '100%' }}>
         <AceEditor
           mode="text"
-          theme="tomorrow_night_blue"
+          theme="cobalt"
           name="my-text-response"
           value="Headers"
           width="100%"
