@@ -33,6 +33,7 @@ export const Variables: React.FunctionComponent = () => {
           style={{ height: '100%' }}
           wrapEnabled={true}
           setOptions={{
+            useWorker: false,
             showLineNumbers: true,
             tabSize: 2,
           }}
